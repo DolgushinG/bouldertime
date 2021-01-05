@@ -16,17 +16,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" data-aos="fade-up">
-                    <form action="#">
-
-
+                    @include('message.message')
+                    <form method="POST" action="{{route('contact_send')}}">
+                        @csrf
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="" for="fname">First Name</label>
-                                <input type="text" id="fname" class="form-control">
+                                <input type="text" name="firstname" id="firstname" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label class="" for="lname">Last Name</label>
-                                <input type="text" id="lname" class="form-control">
+                                <input type="text" name="lastname" id="lastname" class="form-control">
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@
 
                             <div class="col-md-12">
                                 <label class="" for="email">Email</label>
-                                <input type="email" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
 
                             <div class="col-md-12">
                                 <label class="" for="subject">Subject</label>
-                                <input type="subject" id="subject" class="form-control">
+                                <input type="subject" name="subject" id="subject" class="form-control">
                             </div>
                         </div>
 

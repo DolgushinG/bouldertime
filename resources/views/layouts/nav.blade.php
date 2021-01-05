@@ -18,13 +18,17 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                            <script id="html-1" type="text/template">   // заметьте, что это НЕ javascript!
+                                <div class="ds">Текст текст</div>
+                                <div class="sdf12">Текст текст</div>
+                            </script>
 
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="{{route('about')}}">About Us</a></li>
+                            <li><a href="{{route('home')}}">Главная</a></li>
+                            <li><a href="{{route('about')}}">О нас</a></li>
                             <!-- <li><a href="speakers.html">Speakers</a></li> -->
-                            <li><a href="{{route('posts')}}">Posts</a></li>
-                            <li><a href="{{route('contact')}}">Contacts</a></li>
-                            <!-- <li class="cta"><a href="buy-tickets.html">Buy Tickets</a></li> -->
+                            <li><a href="{{route('posts')}}">Посты</a></li>
+                            <li><a href="{{route('contact')}}">Контакты</a></li>
+                            <li><a href="{{route('buy_ticket')}}">Абонементы</a></li>
                         </ul>
                     </nav>
                 </div>

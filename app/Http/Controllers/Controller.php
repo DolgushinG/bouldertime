@@ -17,7 +17,13 @@ class Controller extends BaseController
     public function index_about(){
         return view('about');
     }
-    public function index_contact(){
-        return view('contact');
+
+    public function index_buy_ticket(){
+        return view('buy_ticket');
     }
+    public function status(){
+
+        return 'active';
+    }
+
 }
