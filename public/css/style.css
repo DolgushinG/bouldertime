@@ -657,12 +657,22 @@ h1, h2, h3, h4, h5,
   border-radius: 50%; }
 
 .speaker {
-  margin-bottom: 50px; }
+  margin-bottom: 100px; }
   .speaker .name {
-    left: -80px;
+    left: 45px;
     position: relative; }
     @media (max-width: 1199.98px) {
       .speaker .name {
+        left: 0; } }
+.sp2 {
+    margin-bottom: 100px;
+}
+
+.speaker2 .name {
+    left: 0px;
+    position: relative; }
+@media (max-width: 1199.98px) {
+    .speaker .name {
         left: 0; } }
 
 .testimony {

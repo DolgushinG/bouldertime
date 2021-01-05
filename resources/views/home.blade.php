@@ -5,10 +5,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-10">
-                    <span class="d-block mb-3 caption" data-aos="fade-up" data-aos-delay="100">BLOG</span>
+                    <span class="d-block mb-3 caption" data-aos="fade-up" data-aos-delay="100">БЛОГ</span>
                     <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="200">BOULDERTIME</h1>
-                    <span class="d-block mb-5 caption" data-aos="fade-up" data-aos-delay="300">About climbing</span>
-                    <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>advice,top,article and other</span></a>
+                    <span class="d-block mb-5 caption" data-aos="fade-up" data-aos-delay="300">О скалолазании</span>
+                    <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>статьи</span></a>
+                    <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>советы</span></a>
+                    <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>топы</span></a>
                 </div>
             </div>
         </div>
@@ -19,39 +21,39 @@
             <div class="row mb-5">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="site-section-heading">
-                        <h2>Coming soon</h2>
+                        <h2>Разделы</h2>
                     </div>
                 </div>
-                <div class="col-lg-5 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
-                    <p>Website in development</p>
-                </div>
+{{--                <div class="col-lg-5 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">--}}
+{{--                    <p>Website in development</p>--}}
+{{--                </div>--}}
             </div>
 
-            <!-- <div class="row align-items-center speaker">
+             <div class="row align-items-center speaker">
               <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('images/freepicture2.jpg')}}" alt="Image" class="img-fluid">
               </div>
               <div class="col-lg-6 ml-auto">
-                <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200">Emely Peters</h2>
+                <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200">Статьи</h2>
                 <div class="bio pl-lg-5">
-                  <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300">Web Designer</span>
-                  <p class="mb-4" data-aos="fade-right" data-aos-delay="400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus. Minima architecto impedit eaque molestiae dicta quam. Cum ducimus. Culpa distinctio aperiam</p>
-                  <p data-aos="fade-right" data-aos-delay="500">
-                    Follow Emely &mdash;
-                    <a href="#" class="p-2"><span class="icon-facebook"></span></a>
-                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                    <a href="#" class="p-2"><span class="icon-github"></span></a>
-                  </p>
+                  <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300">Статьи, мнение, советы и топы</span>
+                  <p class="mb-4" data-aos="fade-right" data-aos-delay="400">Тут будет текст описание про этот раздел</p>
+{{--                  <p data-aos="fade-right" data-aos-delay="500">--}}
+{{--                    Follow Emely &mdash;--}}
+{{--                    <a href="#" class="p-2"><span class="icon-facebook"></span></a>--}}
+{{--                    <a href="#" class="p-2"><span class="icon-twitter"></span></a>--}}
+{{--                    <a href="#" class="p-2"><span class="icon-github"></span></a>--}}
+{{--                  </p>--}}
                 </div>
               </div>
             </div>
 
-            <div class="row align-items-center speaker">
+            <div class="sp2 row align-items-center speaker2">
               <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
-                <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('images/advice.jpg')}}" alt="Image" class="img-fluid">
               </div>
               <div class="col-lg-6 ml-auto order-lg-1">
-                <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200">Alex Anchor</h2>
+                <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200">Советы</h2>
                 <div class="bio pr-lg-5">
                   <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-left" data-aos-delay="300">Web Designer</span>
                   <p class="mb-4" data-aos="fade-left" data-aos-delay="400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus. Minima architecto impedit eaque molestiae dicta quam. Cum ducimus. Culpa distinctio aperiam</p>
@@ -67,10 +69,10 @@
 
             <div class="row align-items-center speaker">
               <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('images/tops.jpg')}}" alt="Image" class="img-fluid">
               </div>
               <div class="col-lg-6 ml-auto">
-                <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200">Aaron Thomas</h2>
+                <h2 class="text-white mb-4 name" data-aos="fade-right" data-aos-delay="200">ТОПЫ</h2>
                 <div class="bio pl-lg-5">
                   <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300">Web Designer</span>
                   <p class="mb-4" data-aos="fade-right" data-aos-delay="400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus. Minima architecto impedit eaque molestiae dicta quam. Cum ducimus. Culpa distinctio aperiam</p>
@@ -85,12 +87,12 @@
             </div>
 
 
-            <div class="row align-items-center speaker">
+            <div class="sp2 row align-items-center speaker2">
               <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
-                <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="{{asset('images/programm.jpg')}}" alt="Image" class="img-fluid">
               </div>
               <div class="col-lg-6 ml-auto order-lg-1">
-                <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200">Chris Mathews</h2>
+                <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200">ПРОГРАММЫ</h2>
                 <div class="bio pr-lg-5">
                   <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-left" data-aos-delay="300">Web Designer</span>
                   <p class="mb-4" data-aos="fade-left" data-aos-delay="400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus error deleniti dolores necessitatibus eligendi. Nesciunt repellendus ab voluptatibus. Minima architecto impedit eaque molestiae dicta quam. Cum ducimus. Culpa distinctio aperiam</p>
@@ -102,12 +104,10 @@
                   </p>
                 </div>
               </div>
-            </div> -->
-
-
+            </div>
         </div>
     </div>
-    <!-- <div class="site-section">
+    <div class="site-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-4" data-aos="fade-up">
@@ -182,9 +182,9 @@
 
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="site-section">
+     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-4 ">
@@ -225,9 +225,9 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="site-section">
+    <div class="site-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-4">
@@ -284,7 +284,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     </div>
 @endsection
 
