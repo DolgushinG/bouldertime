@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,17 @@ use App\Http\Controllers\ContactController;
 Route::get('/posts', [PostsController::class, 'index'])->name('posts');
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 Route::get('/contact', [ContactController::class, 'index_contact'])->name('contact');
+
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact_send');
+
+
 Route::get('/buy_ticket', [Controller::class, 'index_buy_ticket'])->name('buy_ticket');
 
 Route::get('/',[Controller::class, 'index_home'])->name('home');
 Route::get('/about',[Controller::class, 'index_about'])->name('about');
 
 
-Route::group(['prefix' => 'backendQ1W2'], function () {
+Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 

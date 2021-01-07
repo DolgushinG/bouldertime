@@ -13,4 +13,5 @@ class PostsController extends Controller
         $post = Models\post::find($id);
         return view('posts.show', compact('post'));
     }
+
 }

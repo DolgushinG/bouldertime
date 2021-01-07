@@ -22,11 +22,11 @@
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="" for="fname">First Name</label>
-                                <input type="text" name="firstname" id="firstname" class="form-control">
+                                <input type="text" name="firstname" value="{{old('firstname')}}" id="firstname" class="form-control">
                             </div>
                             <div class="col-md-6">
                                 <label class="" for="lname">Last Name</label>
-                                <input type="text" name="lastname" id="lastname" class="form-control">
+                                <input type="text" name="lastname" value="{{old('lastname')}}" id="lastname" class="form-control">
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@
 
                             <div class="col-md-12">
                                 <label class="" for="email">Email</label>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <input type="email" name="email" value="{{old('email')}}" id="email" class="form-control">
                             </div>
                         </div>
 
@@ -42,14 +42,14 @@
 
                             <div class="col-md-12">
                                 <label class="" for="subject">Subject</label>
-                                <input type="subject" name="subject" id="subject" class="form-control">
+                                <input type="subject" name="subject" value="{{old('subject')}}" id="subject" class="form-control">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="" for="message">Message</label>
-                                <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
+                                <textarea name="message" id="message" cols="30" rows="7" class="form-control">{{old('message')}}</textarea>
                             </div>
                         </div>
 
