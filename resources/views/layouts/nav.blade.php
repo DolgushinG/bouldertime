@@ -13,22 +13,17 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-11 col-xl-2">
-                    <h1 class="mb-0"><a href="{{route('home')}}" class="text-white h2 mb-0">Bouldertime<span class="text-primary">blog</span> </a></h1>
+                    <h1 class="mb-0"><a href="{{route('home')}}" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span> </a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                            <script id="html-1" type="text/template">   // заметьте, что это НЕ javascript!
-                                <div class="ds">Текст текст</div>
-                                <div class="sdf12">Текст текст</div>
-                            </script>
-
                             <li><a href="{{route('home')}}">Главная</a></li>
                             <li><a href="{{route('about')}}">О нас</a></li>
                             <!-- <li><a href="speakers.html">Speakers</a></li> -->
                             <li><a href="{{route('posts')}}">Посты</a></li>
                             <li><a href="{{route('contact')}}">Контакты</a></li>
-                            <li><a href="{{route('buy_ticket')}}">Абонементы</a></li>
+                            <li><a href="{{route('buy_ticket')}}">Цены</a></li>
                         </ul>
                     </nav>
                 </div>
