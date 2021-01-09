@@ -22,11 +22,25 @@
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="" for="fname">First Name</label>
-                                <input type="text" name="firstname" value="{{old('firstname')}}" id="firstname" class="form-control">
+                                <input id="text" type="text"
+                                       class="form-control @error('firstname') is-invalid @enderror" name="firstname"
+                                       value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                @error('firstname')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label class="" for="lname">Last Name</label>
-                                <input type="text" name="lastname" value="{{old('lastname')}}" id="lastname" class="form-control">
+                                <input id="text" type="text"
+                                       class="form-control @error('lastname') is-invalid @enderror" name="lastname"
+                                       value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                @error('lastname')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -34,7 +48,14 @@
 
                             <div class="col-md-12">
                                 <label class="" for="email">Email</label>
-                                <input type="email" name="email" value="{{old('email')}}" id="email" class="form-control">
+                                <input id="text" type="text"
+                                       class="form-control @error('email') is-invalid @enderror" name="email"
+                                       value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -42,7 +63,14 @@
 
                             <div class="col-md-12">
                                 <label class="" for="subject">Subject</label>
-                                <input type="subject" name="subject" value="{{old('subject')}}" id="subject" class="form-control">
+                                <input id="text" type="text"
+                                       class="form-control @error('subject') is-invalid @enderror" name="subject"
+                                       value="{{ old('subject') }}" required autocomplete="email" autofocus>
+                                @error('subject')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

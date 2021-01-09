@@ -13,7 +13,7 @@
                     <!-- <li><a href="speakers.html">Speakers</a></li> -->
                     <li><a href="{{route('posts')}}">Посты</a></li>
                     <li><a href="{{route('contact')}}">Контакты</a></li>
-                    <li><a href="{{route('buy_ticket')}}">Абонементы</a></li>
+                    <li><a href="{{route('buy_ticket')}}">Цены</a></li>
                 </ul>
             </div>
             <div class="col-md-4">

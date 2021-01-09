@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Contact;
-use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 class ContactController extends Controller
 {
@@ -11,12 +10,11 @@ class ContactController extends Controller
     }
     public function send(ContactRequest $request){
         $contact = new Contact();
-        $contact->email = $request->old('email');
-        $contact->subject = $request->old('subject');
-        $contact->message = $request->old('message');
-        $contact->firstname = $request->old('firstname');
-        $contact->lastname = $request->old('lastname');
-
+        $contact->email = $request->input('email');
+        $contact->subject = $request->input('subject');
+        $contact->message = $request->input('message');
+        $contact->firstname = $request->input('firstname');
+        $contact->lastname = $request->input('lastname');
         $contact->save();
         return redirect()->route('contact')->with('success', 'Спасибо, за ваше обращение, мы обязательное его прочитаем');
     }
