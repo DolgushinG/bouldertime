@@ -85,10 +85,8 @@
                 <div class="col-12 text-center">
                     <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>НАВЕРХ</span></a>
                 </div>
+            </div>
         </a>
-    </div>
-    </div>
-    </div>
     </div>
     {{--    <div class="site-section">--}}
     {{--      <div class="container">--}}

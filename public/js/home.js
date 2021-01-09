@@ -3,7 +3,7 @@ $(document).ready(function(){
         if ($("#content").is(":hidden")) {
             $("#content").show("slow");
         } else {
-            $("#content").hide("slow");
+            $("#contents").hide("slow");
         }
         return false;
     });

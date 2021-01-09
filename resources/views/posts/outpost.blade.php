@@ -14,4 +14,7 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
+        <p>{{$posts->onEachSide(5)->links()}}</p>
+
