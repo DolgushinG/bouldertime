@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5,
           font-family: 'icomoon'; }
       .site-navbar .site-navigation .site-menu .has-children .dropdown {
         visibility: hidden;
-        opacity: 0;
+        opacity: 2;
         top: 100%;
         position: absolute;
         text-align: left;
@@ -419,8 +419,16 @@ h1, h2, h3, h4, h5,
           -webkit-transition: 0s all;
           -o-transition: 0s all;
           transition: 0s all;
-          color: #343a40; }
-        .site-navbar .site-navigation .site-menu .has-children .dropdown .active > a {
+          color: #343a40;
+        }
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu{ display: none;}
+    .navbar .nav-item:hover .nav-link{ color: #fff;  }
+    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+    .navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+.site-navbar .site-navigation .site-menu .has-children .dropdown .active > a {
           color: #ff5733 !important; }
         .site-navbar .site-navigation .site-menu .has-children .dropdown > li {
           list-style: none;
@@ -653,21 +661,53 @@ h1, h2, h3, h4, h5,
       padding-bottom: 40px;
       cursor: pointer;
     width: 100%; }
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
 
-.carousel-item {
-    border: 1px solid black;
-    background: #EEEEEE;
-    font-size: 23px;
-    padding: 100px 20px;
-    text-align: center;
-    box-sizing: border-box;
-    cursor: grab;
-    position: relative;
-    height: 230px;
-    overflow-wrap: break-word;
+/* Carousel base class */
+.carousel {
+    margin-top: 0rem;
+    margin-bottom: 4rem;
+
 }
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 9rem;
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 40rem;
+    background-color: #777;
+}
+
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:auto;
+}
+
+
+.darkened {
+    position: relative;
+}
+
+.darkened::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+
 .coordinator img {
-  max-width: 50px;
+  width: 100%;
   border-radius: 50%; }
 
 .speaker {

@@ -8,7 +8,6 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
-
     <header class="site-navbar py-3" role="banner">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -18,11 +17,67 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                            <li><a href="{{route('home')}}">{{__('Index.Main')}}</a></li>
-                            <li><a href="{{route('about')}}">О нас</a></li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Скалодром
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">
+                                        Первый раз на скалодроме?
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            Скалолазание для взрослых
+                                        </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            График работы
+                                        </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            Подготовщики трасс
+                                        </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Акции
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        Система лояльности
+                                    </a>
+                                    <a class="dropdown-item" href="#"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Скидки
+                                    </a>
+                                    <a class="dropdown-item" href="#"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Утренние посещения
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('buy_ticket')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{__('Price')}}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        Цены на скалодром
+                                    </a>
+                                    <a class="dropdown-item" href="#"
+                                       >
+                                        Абонементы
+                                    </a>
+                                    <a class="dropdown-item" href="#"
+                                       >
+                                        Подарочные сертификаты
+                                    </a>
+                                </div>
+                            </li>
                             <li><a href="{{route('posts')}}">Посты</a></li>
                             <li><a href="{{route('contact')}}">Контакты</a></li>
-                            <li><a href="{{route('buy_ticket')}}">Цены</a></li>
+                            <li><a href="{{route('about')}}">О нас</a></li>
+
                             @guest
                                 @if (Route::has('login'))
                                     <li><a href="{{route('login')}}">Логин</a></li>

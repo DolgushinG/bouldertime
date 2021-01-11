@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Contact;
+use App\Contact;
 use App\Http\Requests\ContactRequest;
 class ContactController extends Controller
 {
