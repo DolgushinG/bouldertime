@@ -5270,8 +5270,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .alert-warning {
-    color: #81520a;
-    background-color: #feebd0;
+    color: #f6f7ff;
+    background-color: #403915;
     border-color: #fde4bd
 }
 

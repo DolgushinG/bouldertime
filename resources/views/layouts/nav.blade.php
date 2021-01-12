@@ -1,4 +1,4 @@
-<div class="site-wrap">
+        <div class="site-wrap">
 
     <div class="site-mobile-menu">
         <div class="site-mobile-menu-header">
@@ -57,8 +57,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('buy_ticket')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{__('Price')}}
+                                <a id="navbarDropdown" class="nav-link dropdown" href="{{route('buy_ticket')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                     Цены
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
@@ -89,8 +89,8 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('profile')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" data-toggle="dropdown">
+                                        <span class="text-white">{{ Auth::user()->name }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
