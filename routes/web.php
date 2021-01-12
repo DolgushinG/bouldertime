@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +19,8 @@ use App\Http\Controllers\CommentsController;
 Route::get('/posts', [PostsController::class, 'index'])->name('posts');
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 Route::post('/posts/{post}/comments', [PostsController::class, 'send_comments'])->name('send_comments');
+Route::get('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'edit_comments'])->name('edit_comments');
+Route::post('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'send_edit_comment'])->name('send_edit_comment');
 
 Route::get('/contact', [ContactController::class, 'index_contact'])->name('contact');
 
@@ -37,3 +38,5 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
+Route::get('/profile/season-ticket', [App\Http\Controllers\HomeController::class, 'season_ticket'])->name('season_ticket');
+Route::get('/profile/my-comments', [App\Http\Controllers\HomeController::class, 'my_comments'])->name('my_comments');

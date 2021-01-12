@@ -241,6 +241,6 @@
 
     {{--        </div>--}}
 
-
+    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 @endsection
 

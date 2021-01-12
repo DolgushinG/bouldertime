@@ -18,10 +18,14 @@
     <link href="{{ asset('css/aos.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+
 </head>
 <body>
-
+@foreach(App\Alert::all() as $Alert)
+    @if($Alert->status)
+        @include('layouts.alert')
+    @endif
+@endforeach
 
 @include('layouts.nav')
 

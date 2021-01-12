@@ -21,7 +21,7 @@
                 <div class="col-lg-4 ">
                     @include('profile.sidebar')
                 </div>
-                <div class="col-lg-5 profile-mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-5 bg-dark p-5 rounded mt-3 profile-mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
                     <form class="row g-3">
                         @csrf
                         <div class="col-md-6">

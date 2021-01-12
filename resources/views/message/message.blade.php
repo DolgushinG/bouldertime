@@ -5,7 +5,7 @@
 @endif
 
 @if(session('success'))
-    <span class="text-uppercase text-primary text-success aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
-           <p>{{session('success')}} </p>
-    </span>
+    <div class="text-uppercase text-primary text-success aos-init aos-animate" data-aos="fade-left" data-aos-delay="300" role="alert">
+        <p>{{session('success')}} </p>
+    </div>
 @endif

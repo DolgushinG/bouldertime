@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Comments;
 
 class Controller extends BaseController
 {
@@ -17,7 +18,23 @@ class Controller extends BaseController
     public function index_about(){
         return view('about');
     }
+    public function season_ticket(){
+        return view('profile.season_ticket');
+    }
+    public function my_comments(){
+        $comments = Comments::all();
+        $comments_for_posts = compact('comments');
+        $outComments = [];
+        foreach ($comments_for_posts as $comments_for_post) {
+            foreach ($comments_for_post as $item) {
+                if($item->email_user === Auth()->user()->email){
+                    $outComments[] = $item;
+                }
 
+            }
+        }
+        return view('profile.my_comments', compact('outComments'));
+    }
     public function index_buy_ticket(){
         return view('buy_ticket');
     }
