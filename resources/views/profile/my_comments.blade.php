@@ -32,7 +32,7 @@
                                         <p>{{$comment->email_user}}</p>
                                     </div>
                                     <div class="col-md-9">
-                                        <p id="comment-message" class="text-white">{{$comment->message}}</h3><br>
+                                        <p id="comment-message" class="text-white">{{$comment->message}}</p><br>
                                             <span>{{$comment->created_at}}</span>
                                     </div>
                                 </div>

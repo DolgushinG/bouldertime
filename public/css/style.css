@@ -87,7 +87,9 @@ h1, h2, h3, h4, h5,
 
 .bg-black {
   background: #000; }
-
+.like-btn{
+    cursor: pointer;
+}
 .form-control {
   height: 43px;
   border-radius: 0; }
