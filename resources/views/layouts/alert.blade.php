@@ -1,3 +1,5 @@
 <div class="alert alert-warning" role="alert">
-    <h5 class="alert-text"> Скидка онлайн 5% </h5>
+    @foreach(App\Alert::all() as $Alert)
+    <h5 class="alert-text">{{$Alert->text}}</h5>
+    @endforeach
 </div>

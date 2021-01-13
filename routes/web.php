@@ -21,6 +21,7 @@ Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 Route::post('/posts/{post}/comments', [PostsController::class, 'send_comments'])->name('send_comments');
 Route::get('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'edit_comments'])->name('edit_comments');
 Route::post('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'send_edit_comment'])->name('send_edit_comment');
+Route::post('/posts/{post}', [PostsController::class, 'like_post'])->name('like_post');
 
 Route::get('/contact', [ContactController::class, 'index_contact'])->name('contact');
 

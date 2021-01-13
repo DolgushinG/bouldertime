@@ -16,16 +16,6 @@
     <div class="site-section">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-4 ">
-                    <div class="site-section-heading" data-aos="fade-up" data-aos-delay="100">
-                        <h2>Welcome To Blog</h2>
-                    </div>
-                </div>
-                <div class="col-lg-5 mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
-                    <p>Blog about climbing</p>
-                </div>
-            </div>
-            <div class="row mb-5">
                 <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                     <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="img-fluid">
                 </div>
@@ -46,85 +36,99 @@
             </div>
             <div class="row mb-5">
                 <div class="col-lg-4" data-aos="fade-up">
-                    <h2>Комментарии({{count($outComments)}})</h2>
+                    <img src="{{asset('images/icon-comment.png')}}"><span> {{count($outComments)}}</span>
+                    <img src="{{asset('images/icon-view.png')}}"><span> {{$post_view}}</span>
+
                 </div>
             </div>
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">
                     <div class="mt-2 pt-2 border-top">
-                        <button id="showHideContent" type="button" class="btn btn-primary btn-sm" data-aos="fade-up" data-aos-delay="400">Посмотреть</button>
+                        <button id="showHideContent" type="button" class="btn btn-primary btn-sm" data-aos="fade-up"
+                                data-aos-delay="400">Посмотреть комментарии
+                        </button>
                     </div>
                 </div>
             </div>
             <div id="content" style="display:none;">
-            @foreach($outComments as $comment)
-                <div id="content" class="row align-items-stretch program">
-                    <div class="col-12 border-top border-bottom py-5" data-aos="fade"
-                         data-aos-delay="200">
-                        <div class="row align-items-stretch">
+                        @foreach($outComments as $comment)
 
-                            <div class="col-md-3 text-white mb-3 mb-md-0"><span
-                                    class="h4">{{$comment->name_user}}</span>
-                                <hr>
-                                <p>{{$comment->email_user}}</p>
+                    <div id="content" class="row align-items-stretch program">
+                        <div class="col-12 border-top border-bottom py-5" data-aos="fade"
+                             data-aos-delay="200">
+                            <div class="row align-items-stretch">
+
+                                <div class="col-md-3 text-white mb-3 mb-md-0"><span
+                                        class="h4">{{$comment->name_user}}</span>
+                                    <hr>
+                                    <p>{{$comment->email_user}}</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <p id="comment-message" class="text-white">{{$comment->message}}</p><br>
+                                    <span>{{$comment->created_at}}</span>
+                                </div>
+                                @auth
+                                    @if ($comment->email_user === Auth::user()->email)
+                                        <a class="btn btn-edit-comments btn-lg btn-primary"
+                                           href="{{route('edit_comments',[$post->id,$comment->id])}}" role="button">Редактировать</a>
+                                    @endif
+                                @endauth
                             </div>
-                            <div class="col-md-9">
-                                <p id="comment-message" class="text-white">{{$comment->message}}</p><br>
-                                <span>{{$comment->created_at}}</span>
-                            </div>
-                            @auth
-                                @if ($comment->email_user === Auth::user()->email)
-                                    <a class="btn btn-edit-comments btn-lg btn-primary"
-                                       href="{{route('edit_comments',[$post->id,$comment->id])}}" role="button">Редактировать</a>
-                                @endif
-                            @endauth
                         </div>
                     </div>
-                </div>
-            @endforeach
+                        @endforeach
 
 
-        @guest
+                @guest
 
-            @if (Route::has('login'))
-
+                    @if (Route::has('login'))
+                        @if(empty($outComments))
+                            <div class="site-section">
+                                <div class="container">
+                                    <div class="bg-dark p-5 rounded mt-3">
+                                        <p class="lead">Комментариев пока нет</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        <div class="site-section">
+                            <div class="container">
+                                <div class="bg-dark p-5 rounded mt-3">
+                                    <p class="lead">Только зарегистрированные пользователи могут комментировать</p>
+                                    <a class="btn btn-lg btn-primary" href="{{route('login')}}" role="button">Войти</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endguest
+            </div>
+            @auth
                 <div class="site-section">
                     <div class="container">
-                        <div class="bg-dark p-5 rounded mt-3">
-                            <p class="lead">Только зарегистрированные пользователи могут комментировать</p>
-                            <a class="btn btn-lg btn-primary" href="{{route('login')}}" role="button">Войти</a>
-                        </div>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-md-6" data-aos="fade-up">
+                                <form method="POST" action="{{route('send_comments', $post->id)}}">
+                                    @csrf
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <label class="" for="message">Добавить комментарий</label>
+                                            <textarea name="message" id="message" cols="30" rows="7"
+                                                      class="form-control">{{old('message')}}</textarea>
 
-            @endif
-        @else
-            <div class="site-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6" data-aos="fade-up">
-                            <form method="POST" action="{{route('send_comments', $post->id)}}">
-                                @csrf
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label class="" for="message">Добавить комментарий</label>
-                                        <textarea name="message" id="message" cols="30" rows="7"
-                                                  class="form-control">{{old('message')}}</textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Опубликовать"
-                                               class="btn btn-primary py-2 px-4 text-white">
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" value="Опубликовать"
+                                                   class="btn btn-primary py-2 px-4 text-white">
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endguest
-            </div>
+            @endauth
         </div>
         <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
             <div class="row" data-aos="fade-up" data-aos-delay="500">

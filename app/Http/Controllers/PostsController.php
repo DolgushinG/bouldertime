@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models;
 use App;
 use App\Http\Requests\CommentsRequest;
+use http\Env\Request;
 
 
 class PostsController extends Controller
@@ -11,6 +12,15 @@ class PostsController extends Controller
     public function index(){
         $posts = Models\post::paginate(6);
         return view('posts.index', compact('posts'));
+    }
+    public function like_post($id_post,$like_count,CommentsRequest $request){
+        dd($request);
+        $like = App\Like::all();
+        $like->id_posts = intval($id_post);
+        $like->count = $like_count + 1;
+
+        $like->save();
+
     }
 
     public function send_comments($id ,CommentsRequest $request){
@@ -41,12 +51,15 @@ class PostsController extends Controller
     }
     public function edit_comments($id_post ,$id_comment){
         $comment = App\Comments::find($id_comment);
-        $post = Models\post::find($id_post);
+        $post = Models\Post::find($id_post);
         return view('posts.edit_comments', compact('comment','post'));
     }
     public function show($id){
+        $post = Models\Post::find($id);
+        views($post)->record();
 
         $comments = App\Comments::all();
+        $likes = App\Like::all();
         $comments_for_posts = compact('comments');
         $outComments = [];
         foreach ($comments_for_posts as $comments_for_post) {
@@ -56,8 +69,15 @@ class PostsController extends Controller
                 }
             }
         }
-        $post = Models\post::find($id);
-        return view('posts.show', compact('outComments','post'));
+        $match_like = [];
+        foreach ($likes as $like) {
+            if($id == $like->id_post){
+                $match_like[] = $like;
+            }
+        }
+
+        $post_view = views($post)->count();
+        return view('posts.show', compact(['outComments','post','match_like','post_view']));
     }
 
 }
