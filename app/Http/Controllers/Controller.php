@@ -19,7 +19,32 @@ class Controller extends BaseController
         return view('about');
     }
     public function season_ticket(){
-        return view('profile.season_ticket');
+        $comments = Comments::all();
+        $comments_for_posts = compact('comments');
+        $outComments = [];
+        foreach ($comments_for_posts as $comments_for_post) {
+            foreach ($comments_for_post as $item) {
+                if($item->email_user === Auth()->user()->email){
+                    $outComments[] = $item;
+                }
+
+            }
+        }
+        return view('profile.season_ticket',compact('outComments'));
+    }
+    public function order_story(){
+        $comments = Comments::all();
+        $comments_for_posts = compact('comments');
+        $outComments = [];
+        foreach ($comments_for_posts as $comments_for_post) {
+            foreach ($comments_for_post as $item) {
+                if($item->email_user === Auth()->user()->email){
+                    $outComments[] = $item;
+                }
+
+            }
+        }
+        return view('profile.order_story',compact('outComments'));
     }
     public function my_comments(){
         $comments = Comments::all();

@@ -3708,7 +3708,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .custom-control-label {
     position: relative;
-    margin-bottom: 0
+    margin-bottom: 17px;
 }
 
 .custom-control-label:before {
@@ -4629,7 +4629,61 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .navbar-dark .navbar-text a:focus, .navbar-dark .navbar-text a:hover {
     color: #fff
 }
+.modal-view {
+    display: none
+}
 
+.modal-view.active {
+    display: block;
+    -webkit-animation: fade-in .25s ease-in-out;
+    animation: fade-in .25s ease-in-out
+}
+
+@media (min-width: 576px) {
+.modal-dialog {
+    max-width:500px;
+    margin: 1.75rem auto
+}
+
+.modal-dialog-scrollable {
+    max-height: calc(100% - 3.5rem)
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 3.5rem)
+}
+
+.modal-dialog-centered {
+    min-height: calc(100% - 3.5rem)
+}
+
+.modal-dialog-centered::before {
+    height: calc(100vh - 3.5rem);
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content
+}
+
+.modal-content {
+    box-shadow: -0.0625rem 0 0.625rem 0 rgba(0,0,0,0.07),0.3125rem 1.25rem 2.5rem 0 rgba(0,0,0,0.04)
+}
+
+.modal-sm {
+    max-width: 300px
+}
+}
+
+@media (min-width: 992px) {
+    .modal-lg,.modal-xl {
+        max-width:800px
+    }
+}
+
+@media (min-width: 1280px) {
+    .modal-xl {
+        max-width:1140px
+    }
+}
 .card {
     position: relative;
     display: -webkit-box;
@@ -4645,7 +4699,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 .card > hr {

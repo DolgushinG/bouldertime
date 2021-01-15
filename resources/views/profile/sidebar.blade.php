@@ -1,34 +1,60 @@
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            Личные данные
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('season_ticket')}}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-            Абонементы
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('my_comments')}}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-             Мои комментарии
-        </a>
-    </li>
-    @auth
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                Выйти
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-        </li>
-    @endauth
-</ul>
+<!-- Sidebar-->
+<div class="col-lg-4 mb-4 mb-lg-0">
+    <div class="bg-dark rounded-lg box-shadow-lg">
+        <div class="px-4 py-4 mb-1 text-center"><img class="d-block rounded-circle mx-auto my-2"
+                                                     width="110"
+                                                     src="{{asset('images/person_1.jpg')}}"
+                                                     alt="Amanda Wilson">
+            <h6 class="mb-0 pt-1">Amanda Wilson</h6><span
+                class="text-muted font-size-sm">{{'@'.Auth::user()->name}}</span>
+        </div>
+        <div class="d-lg-none px-4 pb-4 text-center"><a class="btn btn-primary px-5 mb-2"
+                                                        href="#account-menu" data-toggle="collapse">
+                <i class="fe-menu mr-2"></i>Account menu</a>
+        </div>
+        <div class="d-lg-block collapse pb-2" id="account-menu">
+            <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
+                Личные данные
+            </h3>
+            <a class="d-flex align-items-center nav-link-style px-4 py-3"
+               href="{{route('profile')}}">
+                <i class="fe-shopping-bag font-size-lg opacity-60 mr-2"></i>Мои данные
+                <span class="nav-indicator"></span></a><a
+                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                href="{{route('season_ticket')}}"><i
+                    class="fe-dollar-sign font-size-lg opacity-60 mr-2"></i>Абонемент<span
+                    class="text-muted font-size-sm font-weight-normal ml-auto">10</span></a><a
+                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                href="{{route('my_comments')}}"><i
+                    class="fe-message-square font-size-lg opacity-60 mr-2"></i>Мои комментарии<span
+                    class="nav-indicator"></span><span
+                    class="text-muted font-size-sm font-weight-normal ml-auto">{{count($outComments)}}</span></a><a
+                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                href="{{route('order_story')}}"><i
+                    class="fe-users font-size-lg opacity-60 mr-2"></i>История заказов<span
+                    class="text-muted font-size-sm font-weight-normal ml-auto">34</span></a>
+            <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
+                Настройки</h3>
+            <div class="d-flex align-items-center border-top" style="margin-left: 9px"><a
+                    class="d-block w-100 nav-link-style px-4 py-3"
+                    href="account-notifications.html">Уведомления</a>
+                <div class="ml-auto px-3">
+                    <div class="custom-control custom-checkbox d-block">
+                        <input class="custom-control-input" type="checkbox" id="show-email"
+                               checked="">
+                        <label class="custom-control-label" for="show-email"></label>
+                    </div>
+                </div>
+            </div>
+            @auth
+                <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                   href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i
+                        class="fe-log-out font-size-lg opacity-60 mr-2"></i>Выйти</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @endauth
+        </div>
+    </div>
+</div>
