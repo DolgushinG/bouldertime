@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
+Route::post('/profile', [App\Http\Controllers\HomeController::class, 'save_changes'])->name('save');
 Route::get('/profile/season-ticket', [App\Http\Controllers\HomeController::class, 'season_ticket'])->name('season_ticket');
 Route::get('/profile/my-comments', [App\Http\Controllers\HomeController::class, 'my_comments'])->name('my_comments');
 Route::get('/profile/order-story', [App\Http\Controllers\HomeController::class, 'order_story'])->name('order_story');

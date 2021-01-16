@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comments;
+use App\Models\User;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -36,5 +38,18 @@ class HomeController extends Controller
             }
         }
         return view('profile.index', compact('outComments'));
+    }
+    public function save_changes(UserRequest $userRequest)
+    {
+        $id = Auth()->user()->id;
+        $user = User::find($id);
+        $user->email = $userRequest->input('email');
+        $user->name = $userRequest->input('name');
+        $user->telephone = $userRequest->input('telephone');
+        $user->city = $userRequest->input('city');
+
+        $user->save();
+
+        return redirect()->route('profile')->with('success', 'Изменения сохранены');
     }
 }

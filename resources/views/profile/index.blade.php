@@ -4,6 +4,7 @@
     <div class="site-section" style="padding: 10em 0;">
         <div class="row">
             <div class="container pb-4 mb-md-3">
+                @include('message.message')
                 <div class="row">
                     <!-- Sidebar-->
                 @include('profile.sidebar')
@@ -16,67 +17,84 @@
                                     <h1 class="h3 mb-2 text-nowrap">Информация о профиле</h1>
                                 </div>
                                 <!-- Content-->
-                                <form method="POST" action="#">
+                                <form method="POST" action="{{route('save')}}">
                                     @csrf
-                                    <div class="bg-dark rounded-lg p-4 mb-4">
-                                        <div class="media d-block d-sm-flex align-items-center"><img
-                                                class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110"
-                                                src="{{asset('images/person_1.jpg')}}" alt="Amanda Wilson">
-                                            <div class="media-body pl-sm-3 text-center text-sm-left">
-                                                <button class="btn btn-light box-shadow btn-sm mb-2" type="button"><i
-                                                        class="fe-refresh-cw mr-2"></i>Изменить аватар
-                                                </button>
-                                                <div class="p mb-0 font-size-ms text-muted">загрузка JPG, GIF or PNG
-                                                    image.
-                                                    300 x 300 обязательно.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="bg-dark rounded-lg p-4 mb-4">--}}
+{{--                                        <div class="media d-block d-sm-flex align-items-center"><img--}}
+{{--                                                class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110"--}}
+{{--                                                src="{{asset('images/person_1.jpg')}}" alt="Amanda Wilson">--}}
+{{--                                            <div class="media-body pl-sm-3 text-center text-sm-left">--}}
+{{--                                                <button class="btn btn-light box-shadow btn-sm mb-2" type="button"><i--}}
+{{--                                                        class="fe-refresh-cw mr-2"></i>Изменить аватар--}}
+{{--                                                </button>--}}
+{{--                                                <div class="p mb-0 font-size-ms text-muted">загрузка JPG, GIF or PNG--}}
+{{--                                                    image.--}}
+{{--                                                    300 x 300 обязательно.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="account-fn">Имя</label>
-                                                <input class="form-control" type="text" id="account-fn"
+                                                <input class="form-control" type="text" id="name" name="name"
                                                        value="{{ Auth::user()->name }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="account-email">Email address</label>
-                                                <input class="form-control" type="text" id="account-email"
-                                                       value="{{ Auth::user()->email }}">
+                                                <label for="account-fn">Email</label>
+                                                <input id="email" type="text"
+                                                       class="form-control @error('email') is-invalid @enderror" name="email"
+                                                       value="{{ Auth::user()->email }}" required autocomplete="email" autofocus>
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="account-address">Ваш город</label>
-                                                <input class="form-control" type="text" id="account-address"
-                                                       placeholder="Введите город">
+                                                <label for="city">Ваш город</label>
+                                                <input id="city" type="text"
+                                                       class="form-control @error('city') is-invalid @enderror" name="city"
+                                                       value="{{ Auth::user()->city }}" required autocomplete="city" autofocus>
+                                                @error('city')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="phoneMask">Телефон</label>
-                                                <input class="form-control" type="text" id="phoneMask"
-                                                       value="+7(___)___-____">
+                                                <label for="telephone">Телефон</label>
+                                                <input id="telephone" type="text"
+                                                       class="form-control @error('telephone') is-invalid @enderror" name="telephone"
+                                                       value="{{ Auth::user()->telephone }}" required autocomplete="telephone" autofocus>
+                                                @error('telephone')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
                                             </div>
                                             <div class="col-12">
                                                 <hr class="mt-2 mb-4">
-                                                <div
-                                                    class="d-flex flex-wrap justify-content-between align-items-center">
-                                                    <div class="custom-control custom-checkbox d-block">
-                                                        <input class="custom-control-input" type="checkbox"
-                                                               id="show-email"
-                                                               checked="">
-                                                        <label class="custom-control-label" for="show-email">Show my
-                                                            email to
-                                                            registered users</label>
-                                                    </div>
-                                                    <button class="btn btn-primary mt-3 mt-sm-0" type="button"><i
-                                                            class="fe-save font-size-lg mr-2"></i>Save changes
+                                                <div class="d-flex flex-wrap justify-content-between align-items-center">
+{{--                                                    <div class="custom-control custom-checkbox d-block">--}}
+{{--                                                        <input class="custom-control-input" type="checkbox"--}}
+{{--                                                               id="show-email"--}}
+{{--                                                               checked="">--}}
+{{--                                                        <label class="custom-control-label" for="show-email">Show my--}}
+{{--                                                            email to--}}
+{{--                                                            registered users</label>--}}
+{{--                                                    </div>--}}
+                                                    <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i
+                                                            class="fe-save font-size-lg mr-2"></i>Сохранить
                                                     </button>
                                                 </div>
                                             </div>
