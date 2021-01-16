@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="site-section">
+    <div class="site-section" style="padding: 10em 0;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-9 col-sm-11">

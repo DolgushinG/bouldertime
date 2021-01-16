@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="site-section">
+    <div class="site-section" style="padding: 10em 0;">
         <div class="row">
             <div class="container pb-4 mb-md-3">
                 <div class="row">

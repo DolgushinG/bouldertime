@@ -79,17 +79,16 @@
 
                             @guest
                                 @if (Route::has('login'))
-                                    <li><a class="ml-grid-gutter d-none d-lg-inline-block" href="#modal-signin" data-toggle="modal" data-view="#modal-signin-view">Логин</a></li>
-
+                                    <li><a href="{{route('login')}}">Логин</a></li>
                                 @endif
 
                                 @if (Route::has('register'))
-                                    <li><a class="ml-grid-gutter d-none d-lg-inline-block" href="#modal-signup" data-toggle="modal" data-view="#modal-signup-view">Регистрация</a></li>
+                                        <li><a href="{{route('register')}}">Регистрация</a></li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" data-toggle="dropdown">
-                                        <span class="text-white">{{ Auth::user()->Email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
+                                        <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -117,7 +116,6 @@
             </div>
         </div>
     </header>
-
 </div>
 
 
