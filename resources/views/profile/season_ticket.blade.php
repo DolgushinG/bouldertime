@@ -1,38 +1,52 @@
 @extends('layout')
 
 @section('content')
-
-    <div class="site-section site-hero inner">
-
-        <div class="container">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-10">
-                    <span class="d-block mb-3 caption" data-aos="fade-up">Profile {{ Auth::user()->name }}</span>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="site-section">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-4 ">
+    <div class="site-section" style="padding: 10em 0;">
+        <div class="row">
+            <div class="container pb-4 mb-md-3">
+                <div class="row">
                     @include('profile.sidebar')
-                </div>
-                <div class="col-lg-5 bg-dark p-5 rounded mt-3 profile-mt-5 pl-lg-5" data-aos="fade-up" data-aos-delay="200">
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Дата покупки</label>
-                            <h3>10.21.21</h3>
+                <div class="col-lg-8">
+                    <div class="d-flex flex-column h-100 bg-dark rounded-lg box-shadow-lg p-4">
+                        <div class="py-2 p-md-3">
+                            <!-- Title-->
+                            <h1 class="h3 mb-3 pb-2 text-center text-sm-left">Абонемент</h1>
+                            <!-- Alert-->
+                            <!-- Payment methods (table)-->
+                            <div class="table-responsive font-size-md">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Твой абонемент</th>
+                                        <th>Тип</th>
+                                        <th>Дата покупки</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="py-3 align-middle">
+                                            <div class="media align-items-center">
+                                                <div class="media-body"><span class="font-weight-medium text-heading mr-1">10 </span>посещений<span class="align-middle badge badge-info ml-2">Обычный</span></div>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 align-middle">Amanda Wilson</td>
+                                        <td class="py-3 align-middle">08 / 2023</td>
+                                        <td class="py-3 align-middle"><a class="nav-link-style mr-2" href="#" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fe-edit"></i></a><a class="nav-link-style text-danger" href="#" data-toggle="tooltip" title="" data-original-title="Remove">
+                                                <div class="fe-trash-2"></div></a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr class="pb-4">
+                            <div class="text-sm-right"><a class="btn btn-primary" href="#add-payment" data-toggle="modal">Купить новый абонемент</a></div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Абонемент</label>
-                            <h3>10 посещений </h3>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+
 
 @endsection

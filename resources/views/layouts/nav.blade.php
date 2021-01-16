@@ -1,5 +1,4 @@
-        <div class="site-wrap">
-
+<div class="site-wrap">
     <div class="site-mobile-menu">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -81,16 +80,15 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li><a href="{{route('login')}}">Логин</a></li>
-
                                 @endif
 
                                 @if (Route::has('register'))
-                                    <li><a href="{{route('register')}}">Регистрация</a></li>
+                                        <li><a href="{{route('register')}}">Регистрация</a></li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" data-toggle="dropdown">
-                                        <span class="text-white">{{ Auth::user()->name }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
+                                        <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -119,4 +117,5 @@
         </div>
     </header>
 </div>
+
 
