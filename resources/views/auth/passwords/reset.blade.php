@@ -19,7 +19,7 @@
                             password on our secure website.
                         </li>
                     </ul>
-                    <div class="bg-secondary rounded-lg px-3 py-4 p-sm-4">
+                    <div class="bg-dark rounded-lg px-3 py-4 p-sm-4">
                         <form method="POST" action="{{ route('password.update') }}">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">

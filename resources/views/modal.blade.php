@@ -85,3 +85,19 @@
         </div>
     </div>
 </div>
+<div class="col-sm-6">
+    <div class="form-group">
+        <label for="account-country">Город</label>
+        <select class="custom-select" id="account-country">
+            <option value="">Select country</option>
+            <option value="Russia"selected="" >Russia</option>
+            <option value="Belgium">Belgium</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Madagascar">Madagascar</option>
+            <option value="Spain">Spain</option>
+            <option value="UK">United Kingdom</option>
+            <option value="USA" >USA</option>
+        </select>
+    </div>
+</div>

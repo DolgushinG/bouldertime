@@ -297,8 +297,8 @@ h1, h2, h3, h4, h5,
     border-top-right-radius: calc(1rem - 1px);
 }
 a:hover {
-    color: #493ef0;
-    text-decoration: underline;
+    color: #cb540b;
+    text-decoration: none;
 }
 a {
     transition: color 0.2s ease-in-out;

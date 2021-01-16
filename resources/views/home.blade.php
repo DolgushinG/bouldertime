@@ -241,6 +241,14 @@
 
     {{--        </div>--}}
 
-    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+    <script>//скролл наверх
+        window.onscroll = function () {
+            var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrolled > 100) {
+                document.getElementById('upbutton').style.display = 'block';
+            } else {
+                document.getElementById('upbutton').style.display = 'none';
+            }
+        }</script>
 @endsection
 

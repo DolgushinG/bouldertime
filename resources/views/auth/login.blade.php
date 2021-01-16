@@ -21,7 +21,7 @@
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <div class="input-group-overlay form-group">
-                                                <label class="" for="name">{{ __('Email') }}</label>
+                                                <label class="" for="name">{{ __('Email*') }}</label>
                                                 <input type="email" name="email" value="{{ old('email') }}" id="email"
                                                        class="form-control @error('email') is-invalid @enderror"
                                                        required
@@ -33,7 +33,7 @@
                                                 @enderror
                                             </div>
                                             <div class="input-group-overlay cs-password-toggle form-group">
-                                                <label class="" for="name">{{ __('Пароль') }}</label>
+                                                <label class="" for="name">{{ __('Пароль*') }}</label>
                                                 <input id="password" type="password"
                                                        class="form-control @error('password') is-invalid @enderror"
                                                        name="password"
@@ -65,9 +65,8 @@
                                             </div>
                                             <button class="btn btn-primary btn-block" type="submit">Войти</button>
                                             <p class="font-size-sm pt-3 mb-0">У вас нет аккаунта? <a
-                                                    class="ml-grid-gutter d-none d-lg-inline-block" href="#modal-signup"
-                                                    data-dismiss="modal" aria-label="Close" data-toggle="modal"
-                                                    data-view="#modal-signup-view">Регистрация</a></p>
+                                                    class="ml-grid-gutter d-none d-lg-inline-block" href="{{ route('register') }}"
+                                                    >Регистрация</a></p>
 
                                         </form>
                                     </div>
