@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     @auth
-    <div class="site-section">
+    <div class="site-section" style="padding: 10em 0;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6" data-aos="fade-up">

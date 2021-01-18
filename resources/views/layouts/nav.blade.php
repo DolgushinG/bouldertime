@@ -14,7 +14,7 @@
                     <h1 class="mb-0"><a href="{{route('home')}}" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span> </a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-right" role="navigation">
+                    <nav class="site-navigation navbar position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
