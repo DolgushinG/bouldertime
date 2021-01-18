@@ -64,16 +64,16 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="city">Ваш город</label>
-                                                <input id="city" type="text"
-                                                       class="form-control @error('city') is-invalid @enderror"
-                                                       name="city"
-                                                       value="{{ Auth::user()->city }}" required autocomplete="city"
-                                                       autofocus>
-                                                @error('city')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                @enderror
+                                                <select class="form-control" type="text" name="city" id="city">
+                                                    <option>{{Auth::user()->city}}</option>
+                                                    @if(!empty($cities))
+                                                        @foreach($cities as $city)
+                                                            @if(Auth::user()->city != $city->name)
+                                                            <option value="{{$city->name}}">{{ $city->name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                </select>
                                             </div>
                                         </div>
 

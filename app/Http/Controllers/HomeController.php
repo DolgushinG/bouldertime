@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comments;
+use App\Models\City;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $cities = City::all();
         $comments = Comments::all();
         $comments_for_posts = compact('comments');
         $outComments = [];
@@ -37,7 +39,7 @@ class HomeController extends Controller
 
             }
         }
-        return view('profile.index', compact('outComments'));
+        return view('profile.index', compact(['outComments','cities']));
     }
     public function save_changes(UserRequest $userRequest)
     {
@@ -46,7 +48,7 @@ class HomeController extends Controller
         $user->email = $userRequest->input('email');
         $user->name = $userRequest->input('name');
         $user->telephone = $userRequest->input('telephone');
-        $user->city = $userRequest->input('city');
+        $user->city = $userRequest->get('city');
 
         $user->save();
 
