@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             'email' => 'required|max:100',
             'name' => 'required|max:100',
-            'telephone' => 'required|min:10|size:12'
+            'telephone' => 'required|size:16'
         ];
     }
 }

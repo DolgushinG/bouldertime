@@ -35,7 +35,7 @@
 @include('layouts.footer')
 
 </body>
-<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>

@@ -1,6 +1,8 @@
 @extends('layout')
 
 @section('content')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <div class="site-section" style="padding: 10em 0;" data-aos="fade-up" data-aos-delay="300">
         <div class="row">
             <div class="container pb-4 mb-md-3">
@@ -13,7 +15,8 @@
                         <div class="d-flex flex-column h-100 bg-dark rounded-lg box-shadow-lg p-4">
                             <div class="py-2 p-md-3">
                                 <!-- Title + Delete link-->
-                                <div class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
+                                <div
+                                    class="d-sm-flex align-items-center justify-content-between pb-4 text-center text-sm-left">
                                     <h1 class="h3 mb-2 text-nowrap">Информация о профиле</h1>
                                 </div>
                                 <!-- Content-->
@@ -37,17 +40,19 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="account-fn">Имя</label>
+                                                <label for="name">Имя</label>
                                                 <input class="form-control" type="text" id="name" name="name"
                                                        value="{{ Auth::user()->name }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="account-fn">Email</label>
+                                                <label for="email">Email</label>
                                                 <input id="email" type="text"
-                                                       class="form-control @error('email') is-invalid @enderror" name="email"
-                                                       value="{{ Auth::user()->email }}" required autocomplete="email" autofocus>
+                                                       class="form-control @error('email') is-invalid @enderror"
+                                                       name="email"
+                                                       value="{{ Auth::user()->email }}" required autocomplete="email"
+                                                       autofocus>
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -60,8 +65,10 @@
                                             <div class="form-group">
                                                 <label for="city">Ваш город</label>
                                                 <input id="city" type="text"
-                                                       class="form-control @error('city') is-invalid @enderror" name="city"
-                                                       value="{{ Auth::user()->city }}" required autocomplete="city" autofocus>
+                                                       class="form-control @error('city') is-invalid @enderror"
+                                                       name="city"
+                                                       value="{{ Auth::user()->city }}" required autocomplete="city"
+                                                       autofocus>
                                                 @error('city')
                                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -74,25 +81,30 @@
                                             <div class="form-group">
                                                 <label for="telephone">Телефон</label>
                                                 <input id="telephone" type="text"
-                                                       class="form-control @error('telephone') is-invalid @enderror" name="telephone"
-                                                       value="{{ Auth::user()->telephone }}" required autocomplete="telephone" autofocus>
+                                                       class="form-control @error('telephone') is-invalid @enderror"
+                                                       name="telephone"
+                                                       value="{{ Auth::user()->telephone }}" required
+                                                       autocomplete="telephone" autofocus>
                                                 @error('telephone')
                                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
                                                 @enderror
                                             </div>
+
+
                                             <div class="col-12">
                                                 <hr class="mt-2 mb-4">
-                                                <div class="d-flex flex-wrap justify-content-between align-items-center">
-{{--                                                    <div class="custom-control custom-checkbox d-block">--}}
-{{--                                                        <input class="custom-control-input" type="checkbox"--}}
-{{--                                                               id="show-email"--}}
-{{--                                                               checked="">--}}
-{{--                                                        <label class="custom-control-label" for="show-email">Show my--}}
-{{--                                                            email to--}}
-{{--                                                            registered users</label>--}}
-{{--                                                    </div>--}}
+                                                <div
+                                                    class="d-flex flex-wrap justify-content-between align-items-center">
+                                                    {{--                                                    <div class="custom-control custom-checkbox d-block">--}}
+                                                    {{--                                                        <input class="custom-control-input" type="checkbox"--}}
+                                                    {{--                                                               id="show-email"--}}
+                                                    {{--                                                               checked="">--}}
+                                                    {{--                                                        <label class="custom-control-label" for="show-email">Show my--}}
+                                                    {{--                                                            email to--}}
+                                                    {{--                                                            registered users</label>--}}
+                                                    {{--                                                    </div>--}}
                                                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i
                                                             class="fe-save font-size-lg mr-2"></i>Сохранить
                                                     </button>
@@ -110,4 +122,5 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+
 @endsection
