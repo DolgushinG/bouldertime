@@ -29,7 +29,7 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contact_
 Route::get('/buy_ticket', [Controller::class, 'index_buy_ticket'])->name('buy_ticket');
 Route::get('/',[Controller::class, 'index_home'])->name('home');
 Route::get('/about',[Controller::class, 'index_about'])->name('about');
-
+Route::get('/test',[Controller::class, 'index_test'])->name('test');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

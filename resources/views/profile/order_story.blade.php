@@ -1,13 +1,13 @@
 @extends('layout')
 @section('content')
-    <div class="site-section" style="padding: 10em 0;">
+    <div class="site-section" style="padding: 10em 0;" data-aos="fade-up" data-aos-delay="300">
         <div class="row">
             <div class="container pb-4 mb-md-3">
                 <div class="row">
                     <!-- Sidebar-->
                 @include('profile.sidebar')
                 <!-- Content-->
-                    <div class="col-lg-8">
+                    <div class="col-lg-8" >
                         <div class="d-flex flex-column h-100 bg-dark rounded-lg box-shadow-lg p-4">
                             <div class="py-2 p-md-3">
                                 <!-- Title + Filters-->

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="site-section" style="padding: 10em 0;">
+    <div class="site-section" style="padding: 10em 0;" data-aos="fade-up" data-aos-delay="300">
         <div class="row">
             <div class="container pb-4 mb-md-3">
                 @include('message.message')
@@ -19,21 +19,21 @@
                                 <!-- Content-->
                                 <form method="POST" action="{{route('save')}}">
                                     @csrf
-{{--                                    <div class="bg-dark rounded-lg p-4 mb-4">--}}
-{{--                                        <div class="media d-block d-sm-flex align-items-center"><img--}}
-{{--                                                class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110"--}}
-{{--                                                src="{{asset('images/person_1.jpg')}}" alt="Amanda Wilson">--}}
-{{--                                            <div class="media-body pl-sm-3 text-center text-sm-left">--}}
-{{--                                                <button class="btn btn-light box-shadow btn-sm mb-2" type="button"><i--}}
-{{--                                                        class="fe-refresh-cw mr-2"></i>Изменить аватар--}}
-{{--                                                </button>--}}
-{{--                                                <div class="p mb-0 font-size-ms text-muted">загрузка JPG, GIF or PNG--}}
-{{--                                                    image.--}}
-{{--                                                    300 x 300 обязательно.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="bg-dark rounded-lg p-4 mb-4">
+                                        <div class="media d-block d-sm-flex align-items-center"><img
+                                                class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110"
+                                                src="{{asset('images/person_1.jpg')}}" alt="Amanda Wilson">
+                                            <div class="media-body pl-sm-3 text-center text-sm-left">
+                                                <button class="btn btn-light box-shadow btn-sm mb-2" type="button"><i
+                                                        class="fe-refresh-cw mr-2"></i>Изменить аватар
+                                                </button>
+                                                <div class="p mb-0 font-size-ms text-muted">загрузка JPG, GIF or PNG
+                                                    image.
+                                                    300 x 300 обязательно.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">

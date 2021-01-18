@@ -28,7 +28,7 @@
 @endforeach
 
 @include('layouts.nav')
-
+@include('preloader')
 
 
 @yield('content')
