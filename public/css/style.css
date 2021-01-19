@@ -770,6 +770,9 @@ a {
     background: #343a40!important;
 
 }
+.avatar{
+    size: 5px!important;
+}
 .suggestions-suggestions strong {
     font-weight: 400;
     color: #c74e38!important;
@@ -777,7 +780,9 @@ a {
 .preloader .loader-element {
     animation: spin 4s linear infinite
 }
-
+.rounded-circle {
+    border-radius: 21% !important;
+}
 .site-mobile-menu {
     width: 300px;
     position: fixed;

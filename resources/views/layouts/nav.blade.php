@@ -88,7 +88,11 @@
                             @else
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" >
+                                        @if(Auth::user()->avatar === 'users/default.png')
                                         <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
+                                        @else
+                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset(Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
+                                            @endif
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -17,7 +17,7 @@
     <link href="{{ asset('fonts/flaticon/font/flaticon.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/aos.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
-
+    <script href="{{ asset('js/jquery-3.3.1.min.js') }}" rel="stylesheet" type="text/css"></script>
 </head>
 <body>
 @foreach(App\Alert::all() as $Alert)

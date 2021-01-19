@@ -43,5 +43,5 @@ Route::post('/profile', [App\Http\Controllers\HomeController::class, 'save_chang
 Route::get('/profile/season-ticket', [App\Http\Controllers\HomeController::class, 'season_ticket'])->name('season_ticket');
 Route::get('/profile/my-comments', [App\Http\Controllers\HomeController::class, 'my_comments'])->name('my_comments');
 Route::get('/profile/order-story', [App\Http\Controllers\HomeController::class, 'order_story'])->name('order_story');
-Route::post('selectcity', [CountryController::class, 'selectcity'])->name('selectcity');
-Route::get('countryform', [CountryController::class, 'index']);
+Route::post('/profile/save', [App\Http\Controllers\HomeController::class, 'save_avatar'])->name('save_avatar');
+

@@ -57,7 +57,6 @@ $("#email").suggestions({
 $("#city").suggestions({
     minChars: "2",
     noSuggestionsHint: "ADDRESS: 'Неизвестный адрес'",
-    scrollOnFocus: true,
     count: 5,
     token: token,
     type: "ADDRESS",

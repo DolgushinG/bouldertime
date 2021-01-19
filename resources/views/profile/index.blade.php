@@ -23,23 +23,9 @@
                                     <h1 class="h3 mb-2 text-nowrap">Информация о профиле</h1>
                                 </div>
                                 <!-- Content-->
-                                <form method="POST" action="{{route('save')}}">
+                                <form method="POST" action="{{route('save')}}" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="bg-dark rounded-lg p-4 mb-4">
-                                        <div class="media d-block d-sm-flex align-items-center"><img
-                                                class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110"
-                                                src="{{asset('images/person_1.jpg')}}" alt="Amanda Wilson">
-                                            <div class="media-body pl-sm-3 text-center text-sm-left">
-                                                <button class="btn btn-light box-shadow btn-sm mb-2" type="button"><i
-                                                        class="fe-refresh-cw mr-2"></i>Изменить аватар
-                                                </button>
-                                                <div class="p mb-0 font-size-ms text-muted">загрузка JPG, GIF or PNG
-                                                    image.
-                                                    300 x 300 обязательно.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -55,7 +41,7 @@
                                                        class="form-control @error('email') is-invalid @enderror"
                                                        name="email"
                                                        value="{{ Auth::user()->email }}" required autocomplete="email"
-                                                       autofocus>
+                                                       >
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -67,7 +53,7 @@
                                         <div class="col-sm-6 bg-dark">
                                             <div class="form-group">
                                                 <label for="city">Ваш город</label>
-                                                <input  class="form-control" value="{{Auth::user()->city}}" type="text"
+                                                <input class="form-control" value="{{Auth::user()->city}}" type="text"
                                                        name="city" id="city">
                                             </div>
                                         </div>
