@@ -1,3 +1,5 @@
+
+
 //посмотреть комментарии
 $(document).ready(function(){
     $("#showHideContent").click(function () {
@@ -28,8 +30,47 @@ document.querySelectorAll("button").forEach(function(el){
 })
 
 //mask phone
-$(document).ready(function(){
-    $('#telephone').inputmask('+7(999)-999-9999');
 
+var token = "33c419ffb77324c6b14c23909f66ac321646a8cc";
+
+var defaultFormatResult = $.Suggestions.prototype.formatResult;
+
+function formatResult(value, currentValue, suggestion, options) {
+    var newValue = suggestion.data.city;
+    suggestion.value = newValue;
+
+    return defaultFormatResult.call(this, newValue, currentValue, suggestion, options);
+}
+
+function formatSelected(suggestion) {
+    return suggestion.data.city;
+}
+$("#email").suggestions({
+    token: token,
+    type: "EMAIL",
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function(suggestion) {
+        console.log(suggestion);
+    }
 });
-
+    //dadate
+$("#city").suggestions({
+    minChars: "2",
+    noSuggestionsHint: "ADDRESS: 'Неизвестный адрес'",
+    scrollOnFocus: true,
+    count: 5,
+    token: token,
+    type: "ADDRESS",
+    hint: false,
+    bounds: "city",
+    addon: "none",
+    constraints: {
+        locations: { city_type_full: "город" }
+    },
+    formatResult: formatResult,
+    formatSelected: formatSelected,
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function(suggestion) {
+        console.log(suggestion);
+    }
+});

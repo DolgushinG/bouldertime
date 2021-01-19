@@ -3,6 +3,9 @@
 @section('content')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/css/suggestions.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/js/jquery.suggestions.min.js"></script>
+
     <div class="site-section" style="padding: 10em 0;" data-aos="fade-up" data-aos-delay="300">
         <div class="row">
             <div class="container pb-4 mb-md-3">
@@ -61,19 +64,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 bg-dark">
                                             <div class="form-group">
                                                 <label for="city">Ваш город</label>
-                                                <select class="form-control" type="text" name="city" id="city">
-                                                    <option>{{Auth::user()->city}}</option>
-                                                    @if(!empty($cities))
-                                                        @foreach($cities as $city)
-                                                            @if(Auth::user()->city != $city->name)
-                                                            <option value="{{$city->name}}">{{ $city->name }}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    @endif
-                                                </select>
+                                                <input  class="form-control" value="{{Auth::user()->city}}" type="text"
+                                                       name="city" id="city">
                                             </div>
                                         </div>
 
@@ -122,5 +117,10 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $('#telephone').inputmask('+7(999)-999-9999');
 
+    });
+</script>
 @endsection

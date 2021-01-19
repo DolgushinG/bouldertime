@@ -56,7 +56,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown" href="{{route('buy_ticket')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('buy_ticket')}}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                                      Цены
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -87,7 +87,7 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" data-toggle="dropdown">
+                                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" >
                                         <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
                                     </a>
 

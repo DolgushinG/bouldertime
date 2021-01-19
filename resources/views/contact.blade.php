@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('content')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/css/suggestions.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/js/jquery.suggestions.min.js"></script>
     <div class="site-section site-hero inner">
         <div class="container">
             <div class="row align-items-center">
@@ -48,7 +51,7 @@
 
                             <div class="col-md-12">
                                 <label class="" for="email">Email</label>
-                                <input id="text" type="text"
+                                <input id="email" type="text"
                                        class="form-control @error('email') is-invalid @enderror" name="email"
                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
@@ -201,4 +204,5 @@
 
       </div>
     </div> -->
+    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     @endsection

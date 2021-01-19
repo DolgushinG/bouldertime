@@ -766,7 +766,14 @@ a {
     width: 100%;
     z-index: 9999
 }
+.suggestions-suggestions {
+    background: #343a40!important;
 
+}
+.suggestions-suggestions strong {
+    font-weight: 400;
+    color: #c74e38!important;
+}
 .preloader .loader-element {
     animation: spin 4s linear infinite
 }

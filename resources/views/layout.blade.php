@@ -17,7 +17,6 @@
     <link href="{{ asset('fonts/flaticon/font/flaticon.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/aos.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
 
 </head>
 <body>
@@ -47,6 +46,5 @@
 <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/aos.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-
 
 </html>
