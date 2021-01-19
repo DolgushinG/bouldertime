@@ -19,7 +19,7 @@
                         </i>
                     </div>
                 <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i
-                        class="fe-save font-size-lg mr-2"></i>Сохранить
+                        class="fe-save font-size-lg mr-2"></i>Сохранить аватар
                 </button>
             </form>
         </div>

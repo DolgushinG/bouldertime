@@ -154,7 +154,7 @@
         <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
             <div class="row" data-aos="fade-up" data-aos-delay="500">
                 <div class="col-12 text-center">
-                    <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>НАВЕРХ</span></a>
+                    <a href="#" class="btn-custom" style="margin-top: 2rem;" data-aos="fade-up" data-aos-delay="400"><span>НАВЕРХ</span></a>
                 </div>
             </div>
         </a>
