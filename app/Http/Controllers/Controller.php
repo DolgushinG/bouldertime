@@ -18,7 +18,9 @@ class Controller extends BaseController
     public function index_about(){
         return view('about');
     }
-
+    public function index_test(){
+        return view('test');
+    }
     public function season_ticket(){
         $comments = Comments::all();
         $comments_for_posts = compact('comments');

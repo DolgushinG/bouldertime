@@ -1,3 +1,5 @@
+
+
 //посмотреть комментарии
 $(document).ready(function(){
     $("#showHideContent").click(function () {
@@ -27,36 +29,47 @@ document.querySelectorAll("button").forEach(function(el){
     },false)
 })
 
-// //mask phone
-// window.addEventListener("DOMContentLoaded", function() {
-//     function setCursorPosition(pos, elem) {
-//         elem.focus();
-//         if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
-//         else if (elem.createTextRange) {
-//             var range = elem.createTextRange();
-//             range.collapse(true);
-//             range.moveEnd("character", pos);
-//             range.moveStart("character", pos);
-//             range.select()
-//         }
-//     }
-//
-//     function mask(event) {
-//         var matrix = this.defaultValue,
-//             i = 0,
-//             def = matrix.replace(/\D/g, ""),
-//             val = this.value.replace(/\D/g, "");
-//         def.length >= val.length && (val = def);
-//         matrix = matrix.replace(/[_\d]/g, function(a) {
-//             return val.charAt(i++) || "_"
-//         });
-//         this.value = matrix;
-//         i = matrix.lastIndexOf(val.substr(-1));
-//         i < matrix.length && matrix != this.defaultValue ? i++ : i = matrix.indexOf("_");
-//         setCursorPosition(i, this)
-//     }
-//
-//     var input = document.querySelector("#telephone");
-//     input.addEventListener("input", mask, false)
-// });
-//
+//mask phone
+
+var token = "33c419ffb77324c6b14c23909f66ac321646a8cc";
+
+var defaultFormatResult = $.Suggestions.prototype.formatResult;
+
+function formatResult(value, currentValue, suggestion, options) {
+    var newValue = suggestion.data.city;
+    suggestion.value = newValue;
+
+    return defaultFormatResult.call(this, newValue, currentValue, suggestion, options);
+}
+
+function formatSelected(suggestion) {
+    return suggestion.data.city;
+}
+$("#email").suggestions({
+    token: token,
+    type: "EMAIL",
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function(suggestion) {
+        console.log(suggestion);
+    }
+});
+    //dadate
+$("#city").suggestions({
+    minChars: "2",
+    noSuggestionsHint: "ADDRESS: 'Неизвестный адрес'",
+    count: 5,
+    token: token,
+    type: "ADDRESS",
+    hint: false,
+    bounds: "city",
+    addon: "none",
+    constraints: {
+        locations: { city_type_full: "город" }
+    },
+    formatResult: formatResult,
+    formatSelected: formatSelected,
+    /* Вызывается, когда пользователь выбирает одну из подсказок */
+    onSelect: function(suggestion) {
+        console.log(suggestion);
+    }
+});

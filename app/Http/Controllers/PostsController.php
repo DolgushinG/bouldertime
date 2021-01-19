@@ -13,15 +13,6 @@ class PostsController extends Controller
         $posts = Models\post::paginate(6);
         return view('posts.index', compact('posts'));
     }
-    public function like_post($id_post,$like_count,CommentsRequest $request){
-        dd($request);
-        $like = App\Like::all();
-        $like->id_posts = intval($id_post);
-        $like->count = $like_count + 1;
-
-        $like->save();
-
-    }
 
     public function send_comments($id ,CommentsRequest $request){
         $comments = new App\Comments();
@@ -59,25 +50,19 @@ class PostsController extends Controller
         views($post)->record();
 
         $comments = App\Comments::all();
-        $likes = App\Like::all();
         $comments_for_posts = compact('comments');
         $outComments = [];
         foreach ($comments_for_posts as $comments_for_post) {
             foreach ($comments_for_post as $item) {
                 if($item->id_posts === intval($id)){
                     $outComments[] = $item;
+
                 }
             }
         }
-        $match_like = [];
-        foreach ($likes as $like) {
-            if($id == $like->id_post){
-                $match_like[] = $like;
-            }
-        }
-
+        $users = App\Models\User::all();
         $post_view = views($post)->count();
-        return view('posts.show', compact(['outComments','post','match_like','post_view']));
+        return view('posts.show', compact(['outComments','post','post_view','users']));
     }
 
 }

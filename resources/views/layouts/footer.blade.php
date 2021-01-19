@@ -32,7 +32,10 @@
             <div class="col-md-12 text-center">
                 <div class="border-top pt-5">
                     <p>
-                        Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved </a>
+                        Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved
+                    </p>
+                    <p class="text-muted">
+                        made by Dolgushin Georgii
                     </p>
                 </div>
             </div>

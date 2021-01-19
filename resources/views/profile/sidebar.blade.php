@@ -1,12 +1,27 @@
 <!-- Sidebar-->
 <div class="col-lg-4 mb-4 mb-lg-0">
     <div class="bg-dark rounded-lg box-shadow-lg">
-        <div class="px-4 py-4 mb-1 text-center"><img class="d-block rounded-circle mx-auto my-2"
-                                                     width="110"
-                                                     src="{{asset('images/person_1.jpg')}}"
-                                                     alt="Amanda Wilson">
-            <h6 class="mb-0 pt-1">Amanda Wilson</h6><span
-                class="text-muted font-size-sm">{{'@'.Auth::user()->name}}</span>
+        <div class="px-4 py-4 mb-1 text-center">
+            @if(Auth::user()->avatar === 'users/default.png')
+                <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=150" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
+            @else
+                <img src="{{asset(Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="150" alt="avatar">
+            @endif
+            <form method="POST" action="{{route('save_avatar')}}" enctype="multipart/form-data">
+                @csrf
+                    <div class="media-body px-4 pb-4 text-center">
+                        <a class="btn btn-edit-comments btn-lg btn-primary" style="margin-top:3rem; margin-left: 4rem;display:block;width:120px; height:30px;" onclick="document.getElementById('avatar').click()">Загрузить</a>
+                        <input type='file' id="avatar" name="avatar" style="display:none">
+                        <i class="fe-refresh-cw mr-2">
+                            <div class="p mb-0 font-size-small text-muted">
+                                *jpg,png
+                            </div>
+                        </i>
+                    </div>
+                <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i
+                        class="fe-save font-size-lg mr-2"></i>Сохранить
+                </button>
+            </form>
         </div>
         <div class="d-lg-none px-4 pb-4 text-center"><a class="btn btn-primary px-5 mb-2"
                                                         href="#account-menu" data-toggle="collapse">
