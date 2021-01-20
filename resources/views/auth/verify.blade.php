@@ -10,7 +10,7 @@
 
                         <div class="card-body">
                             @if (session('resent'))
-                                <div class="alert alert-success" role="alert">
+                                <div class="alert alert-success " style="margin-top: 1rem;margin-bottom: 1rem;" role="alert">
                                     {{ __('На вашу почту отправлено новое письмо ссылкой для подтверждения') }}
                                 </div>
                             @endif
