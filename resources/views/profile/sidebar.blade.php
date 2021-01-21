@@ -19,13 +19,13 @@
                         </i>
                     </div>
                 <button class="btn btn-primary mt-3 mt-sm-0" type="submit"><i
-                        class="fe-save font-size-lg mr-2"></i>Сохранить
+                        class="fe-save font-size-lg mr-2"></i>Сохранить аватар
                 </button>
             </form>
         </div>
         <div class="d-lg-none px-4 pb-4 text-center"><a class="btn btn-primary px-5 mb-2"
                                                         href="#account-menu" data-toggle="collapse">
-                <i class="fe-menu mr-2"></i>Account menu</a>
+                <i class="fe-menu mr-2"></i>Меню профиля</a>
         </div>
         <div class="d-lg-block collapse pb-2" id="account-menu">
             <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
@@ -34,20 +34,25 @@
             <a class="d-flex align-items-center nav-link-style px-4 py-3"
                href="{{route('profile')}}">
                 <i class="fe-shopping-bag font-size-lg opacity-60 mr-2"></i>Мои данные
-                <span class="nav-indicator"></span></a><a
-                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
-                href="{{route('season_ticket')}}"><i
-                    class="fe-dollar-sign font-size-lg opacity-60 mr-2"></i>Абонемент<span
-                    class="text-muted font-size-sm font-weight-normal ml-auto">10</span></a><a
-                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                <span class="nav-indicator"></span></a>
+            @foreach(App\Status::all() as $status)
+                @if($status->status)
+                    <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                       href="{{route('season_ticket')}}"><i
+                            class="fe-dollar-sign font-size-lg opacity-60 mr-2"></i>Абонемент<span
+                            class="text-muted font-size-sm font-weight-normal ml-auto">10</span></a>
+                    <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
+                       href="{{route('order_story')}}"><i
+                            class="fe-users font-size-lg opacity-60 mr-2"></i>История заказов<span
+                            class="text-muted font-size-sm font-weight-normal ml-auto">34</span></a>
+                @endif
+            @endforeach
+            <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
                 href="{{route('my_comments')}}"><i
                     class="fe-message-square font-size-lg opacity-60 mr-2"></i>Мои комментарии<span
                     class="nav-indicator"></span><span
-                    class="text-muted font-size-sm font-weight-normal ml-auto">{{count($outComments)}}</span></a><a
-                class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
-                href="{{route('order_story')}}"><i
-                    class="fe-users font-size-lg opacity-60 mr-2"></i>История заказов<span
-                    class="text-muted font-size-sm font-weight-normal ml-auto">34</span></a>
+                    class="text-muted font-size-sm font-weight-normal ml-auto">{{count($outComments)}}</span></a>
+
             <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
                 Настройки</h3>
             <div class="d-flex align-items-center border-top" style="margin-left: 9px"><a

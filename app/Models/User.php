@@ -4,21 +4,13 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class User extends \TCG\Voyager\Models\User implements HasMedia
+class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
     use HasFactory, Notifiable, HasMediaTrait;
 
-    public function userMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('thumb')
-            ->width(50)
-            ->height(50);
-    }
     /**
      * The attributes that are mass assignable.
      *

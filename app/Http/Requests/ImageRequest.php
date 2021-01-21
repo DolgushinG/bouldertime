@@ -24,7 +24,7 @@ class ImageRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'avatar' => 'image|max:3000|mimes:jpeg,jpg,bmp,png'
         ];
     }
 }

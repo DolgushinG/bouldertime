@@ -2,19 +2,23 @@
 <footer class="site-footer">
     <div class="container">
         <div class="row mb-5">
-            <div class="col-md-4">
-                <!-- <h2 class="footer-heading text-uppercase mb-4">About Event</h2> -->
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit aliquid quibusdam fugit architecto.</p> -->
-            </div>
-            <div class="col-md-3 ml-auto">
-                <h2 class="footer-heading text-uppercase mb-4">Quick Links</h2>
+            <div class="col-md-2 ml-auto">
+                <h2 class="footer-heading text-uppercase mb-4">Полезные ссылки</h2>
                 <ul class="list-unstyled">
                     <li><a href="{{route('home')}}">Главная</a></li>
                     <li><a href="{{route('about')}}">О нас</a></li>
-                    <!-- <li><a href="speakers.html">Speakers</a></li> -->
                     <li><a href="{{route('posts')}}">Посты</a></li>
                     <li><a href="{{route('contact')}}">Контакты</a></li>
                     <li><a href="{{route('buy_ticket')}}">Цены</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading text-uppercase mb-4">Юридическая информация</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#">Политика в отношении обработки персональных данных</a></li>
+                    <li><a href="#">Согласие на обработку персональных данных</a></li>
+                    <li><a href="#">Политика Cookie</a></li>
+                    <li><a href="#">Пользовательское соглашение</a></li>
                 </ul>
             </div>
             <div class="col-md-4">

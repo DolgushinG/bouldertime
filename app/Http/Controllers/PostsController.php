@@ -60,9 +60,10 @@ class PostsController extends Controller
                 }
             }
         }
+        $countTimeRead = round(strlen($post->body)/1500);
         $users = App\Models\User::all();
         $post_view = views($post)->count();
-        return view('posts.show', compact(['outComments','post','post_view','users']));
+        return view('posts.show', compact(['outComments','post','post_view','users','countTimeRead']));
     }
 
 }
