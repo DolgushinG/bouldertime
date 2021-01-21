@@ -1,21 +1,22 @@
 @extends('layout')
 @section('content')
+
     <div class="site-section site-hero inner">
         <div class="container">
 
-            <div class="row align-items-center">
+            <div class="row align-items-center titleArticle">
 
-                <div class="col-md-10">
+                <div class="col-md-10 ">
                     @include('message.message')
+                    <h1 class="d-block mb-3" data-aos="fade-up" data-aos-delay="100">{{$post->title}}</h1>
                     <span class="d-block mb-3 caption"
-                          data-aos="fade-up">James Curran January 31, 2020 7 min read</span>
-                    <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">{{$post->title}}</h1>
+                          data-aos="fade-up">{{$countTimeRead}} min чтения</span>
                 </div>
             </div>
         </div>
     </div>
     <div class="site-section">
-        <div class="container">
+        <div class="container img-posts">
             <div class="row mb-5">
                 <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                     <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="img-fluid">
@@ -55,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div id="content" style="display:none;">
+            <div id="content" style="padding-top: 2rem;">
                 @foreach($outComments as $comment)
 
                     <div id="content" class="row align-items-stretch program">
@@ -98,7 +99,6 @@
 
 
                 @guest
-
                     @if (Route::has('login'))
                         @if(empty($outComments))
                             <div class="site-section">
@@ -131,7 +131,7 @@
                                         <label class="" for="message">Добавить комментарий</label>
                                         <textarea name="message" id="message" cols="30" rows="7"
                                                   class="form-control"
-                                                  placeholder="Текст сообщения">{{old('message')}}</textarea>
+                                                  placeholder="Что вы думаете об этом?">{{old('message')}}</textarea>
 
                                     </div>
                                 </div>
@@ -188,7 +188,9 @@
                 document.getElementById('upbutton').style.display = 'none';
             }
         }
+
     </script>
+
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 
 

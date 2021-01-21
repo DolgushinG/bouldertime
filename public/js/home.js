@@ -1,16 +1,39 @@
 
 
-//посмотреть комментарии
+
+
 $(document).ready(function(){
     $("#showHideContent").click(function () {
-        if ($("#content").is(":hidden")) {
-            $("#content").show("slow");
-        } else {
+        if ($("#content").hasClass("show_comments")) {
             $("#content").hide("slow");
+            $('#content').removeClass('show_comments').addClass('hide_comments');
+            Cookies.remove('_showmode');
+            Cookies.set('_hidemode', 'Enabled');
+        } else if ($("#content").hasClass("hide_comments")) {
+            $("#content").show("slow");
+            $('#content').removeClass('hide_comments').addClass('show_comments');
+            Cookies.remove('_hidemode');
+            Cookies.set('_showmode', 'Enabled');
         }
-        return false;
     });
 });
+if(Cookies.get("_hidemode") === "Enabled"){
+    $("#content").hide("slow");
+    $("#content").addClass('hide_comments');
+    document.querySelector("#showHideContent").innerHTML = 'Посмотреть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Скрыть комментарии';
+} else if (Cookies.get("_showmode") === "Enabled") {
+    $("#content").show("slow");
+    $("#content").addClass('show_comments');
+    document.querySelector("#showHideContent").innerHTML = 'Скрыть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Посмотреть комментарии';
+} else {
+    Cookies.set('_showmode', 'Enabled');
+    document.querySelector("#showHideContent").innerHTML = 'Скрыть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Посмотреть комментарии';
+    $("#content").addClass('show_comments');
+}
+
 
     var smoothJumpUp = function () {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
@@ -23,10 +46,24 @@ document.querySelectorAll("button").forEach(function(el){
     el.addEventListener("click",function(){
         if(!this.dataset.secondname)
             return;
-        var tmp = this.innerHTML;
-        this.innerHTML = this.dataset.secondname;
-        this.dataset.secondname = tmp;
+        if(Cookies.get('_showmode') === 'Enabled'){
+            this.dataset.secondname = 'Показать комментарии';
+            this.innerHTML = 'Скрыть комментарии';
+            let tmp = this.innerHTML;
+            this.innerHTML = this.dataset.secondname;
+            this.dataset.secondname = tmp;
+        }
+        if (Cookies.get('_hidemode') === 'Enabled'){
+            this.dataset.secondname = 'Скрыть комментарии';
+            this.innerHTML = 'Показать комментарии';
+            let tmp = this.innerHTML;
+            this.innerHTML = this.dataset.secondname;
+            this.dataset.secondname = tmp;
+        }
+
+
     },false)
+
 })
 
 //mask phone
@@ -73,59 +110,4 @@ $("#city").suggestions({
         console.log(suggestion);
     }
 });
-/*!
- * Start Bootstrap - Grayscale v6.0.3 (https://startbootstrap.com/theme/grayscale)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
- */
-(function ($) {
-    "use strict"; // Start of use strict
 
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-        if (
-            location.pathname.replace(/^\//, "") ==
-            this.pathname.replace(/^\//, "") &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length
-                ? target
-                : $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                $("html, body").animate(
-                    {
-                        scrollTop: target.offset().top - 70,
-                    },
-                    1000,
-                    "easeInOutExpo"
-                );
-                return false;
-            }
-        }
-    });
-
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#mainNav",
-        offset: 100,
-    });
-
-    // Collapse Navbar
-    var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
-            $("#mainNav").addClass("navbar-shrink");
-        } else {
-            $("#mainNav").removeClass("navbar-shrink");
-        }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-})(jQuery);
