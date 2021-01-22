@@ -44,3 +44,5 @@ Route::get('/profile/my-comments', [App\Http\Controllers\HomeController::class, 
 Route::get('/profile/order-story', [App\Http\Controllers\HomeController::class, 'order_story'])->name('order_story')->middleware('verified');;
 Route::post('/profile/save', [App\Http\Controllers\HomeController::class, 'save_avatar'])->name('save_avatar')->middleware('verified');;
 
+// Like Or Dislike
+Route::post('/posts/likedislike',[PostsController::class, 'save_likedislike'])->name('likedislike');

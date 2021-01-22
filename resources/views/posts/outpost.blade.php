@@ -1,21 +1,19 @@
-<div class="site-section">
+<div class="site-section posts-style">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-7">
             <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="300">
-                <div class="card bg-dark border-dark shadow-soft flex-lg-row p-4"><a
-                        href="./blog-post.html" class="col-12 col-lg-6"><img src="../assets/img/blog/image-1.jpg" alt=""
+                <div class="card bg-dark shadow-soft flex-lg-row p-4" style="background-color: #1a1c2585!important"><a
+                        href="{{route('show', $newPost->id)}}" class="col-12 col-lg-6"><img src="{{asset('storage/'.$newPost->image)}}" alt="imageposts"
                                                                              class="card-img-top"></a>
-                    <div class="card-body py-4 p-lg-5"><a href="./blog-post.html" class="mb-3 d-block"><h2>Designing a
-                                dashboard that increases business value</h2></a>
-                        <p class="mb-3">Today we are overwhelmed by content, and inspiration can strike anywhere. The
-                            point is to collect it and share it in a structured way to inspire your team, client, and
-                            users. In this article, I will show you how to design a dashboard.</p>
-                        <div class="d-flex align-items-center"><img class="avatar avatar-sm rounded-circle"
-                                                                    src="../assets/img/team/profile-picture-1.jpg"
+                    <div class="card-body py-4 p-lg-5" style="padding-top: 2px!important;"><a href="{{route('show', $newPost->id)}}" class="mb-3 d-block">
+                            <h2>{{$newPost->title}}</h2></a>
+                        <p class="mb-3">{!!mb_strcut($newPost->body,0,400)!!}{{'...'}}</p>
+                        <div class="d-flex align-items-center"><img class="avatar img-fluid rounded-circle mr-1"
+                                                                    src="https://eu.ui-avatars.com/api/?name=Boulder+Time&background=a73737&color=050202&font-size=0.33&size=30"
                                                                     alt=""><h6 class="text-muted small ml-2 mb-0">
-                                Richard Thomas</h6>
+                                by bouldertimeblog</h6>
                             <h6 class="text-muted small font-weight-normal mb-0 ml-auto">
-                                <time datetime="2019-04-25">21 February, 2019</time>
+                                <time datetime="2019-04-25">{{$newPost->created_at}}</time>
                             </h6>
                         </div>
                     </div>
