@@ -1,20 +1,41 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models;
+use App\Models\LikeDislike;
 use App;
 use App\Http\Requests\CommentsRequest;
 use http\Env\Request;
-
+use App\Http\Requests\postRequest;
 
 class PostsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $newPost = App\Models\Post::latest('created_at')->first();
         $posts = Models\post::paginate(6);
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts','newPost'));
     }
 
-    public function send_comments($id ,CommentsRequest $request){
+    function save_likedislike(postRequest $request)
+    {
+
+        $data = new LikeDislike;
+        $data->post_id = $request->post;
+        if ($request->type == 'like') {
+            $data->like = 1;
+        } else {
+            $data->dislike = 1;
+        }
+        $data->save();
+        return response()->json([
+            'bool' => true
+        ]);
+    }
+
+    public function send_comments($id, CommentsRequest $request)
+    {
         $comments = new App\Comments();
         $comments->id_posts = intval($id);
         $comments->author_id = 2;
@@ -27,7 +48,9 @@ class PostsController extends Controller
 
         return redirect()->route('show', $id)->with('success', 'Комментарий успешно добавлен');
     }
-    public function send_edit_comment($id_post ,$id_comment,CommentsRequest $request){
+
+    public function send_edit_comment($id_post, $id_comment, CommentsRequest $request)
+    {
         $comment = App\Comments::find($id_comment);
         $comment->id_posts = intval($id_post);
         $comment->author_id = 2;
@@ -40,30 +63,34 @@ class PostsController extends Controller
 
         return redirect()->route('show', $id_post)->with('success', 'Изменения сохранены');
     }
-    public function edit_comments($id_post ,$id_comment){
+
+    public function edit_comments($id_post, $id_comment)
+    {
         $comment = App\Comments::find($id_comment);
         $post = Models\Post::find($id_post);
-        return view('posts.edit_comments', compact('comment','post'));
+        return view('posts.edit_comments', compact('comment', 'post'));
     }
-    public function show($id){
+
+    public function show($id)
+    {
         $post = Models\Post::find($id);
         views($post)->record();
+        $likes = LikeDislike::all();
+        $likeInPost = 0;
+        $dislikeInPost = 0;
 
-        $comments = App\Comments::all();
-        $comments_for_posts = compact('comments');
-        $outComments = [];
-        foreach ($comments_for_posts as $comments_for_post) {
-            foreach ($comments_for_post as $item) {
-                if($item->id_posts === intval($id)){
-                    $outComments[] = $item;
-
-                }
+        foreach ($likes as $like){
+            if($like->post_id === intval($id)){
+                $likeInPost += $like->like;
+                $dislikeInPost += $like->dislike;
             }
         }
-        $countTimeRead = round(strlen($post->body)/1500);
+
+        $comments = App\Comments::where('id_posts','=',$id)->get();
+        $countTimeRead = round(strlen($post->body) / 1500);
         $users = App\Models\User::all();
         $post_view = views($post)->count();
-        return view('posts.show', compact(['outComments','post','post_view','users','countTimeRead']));
+        return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead','likeInPost','dislikeInPost']));
     }
 
 }

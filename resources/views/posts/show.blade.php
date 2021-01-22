@@ -2,21 +2,38 @@
 @section('content')
 
     <div class="site-section site-hero inner">
-        <div class="container">
 
+        <div class="container">
             <div class="row align-items-center titleArticle">
+                <div class="container float-right">
+                    <a href="{{route('posts')}}"><button class="btn btn-sm btn-outline-primary d-inline font-weight-bold float-right">НАЗАД</button></a>
+                </div>
 
                 <div class="col-md-10 ">
                     @include('message.message')
                     <h1 class="d-block mb-3" data-aos="fade-up" data-aos-delay="100">{{$post->title}}</h1>
-                    <span class="d-block mb-3 caption"
-                          data-aos="fade-up">{{$countTimeRead}} min чтения</span>
+                    <small class="float-right">
+                    <span class="caption" data-aos="fade-up" data-aos-delay="100">
+
+                        @if($countTimeRead === 1)
+                            {{$countTimeRead}}  минута чтения
+                        @elseif($countTimeRead < 5 && $countTimeRead > 1 )
+                            {{$countTimeRead}} минуты чтения
+                        @elseif($countTimeRead < 1)
+                             меньше минуты чтения
+                            @else
+                            {{$countTimeRead}}  минут чтения
+                        @endif
+                    </span>
+                    </small>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="site-section">
-        <div class="container img-posts">
+
+        <div class="container  posts-style">
             <div class="row mb-5">
                 <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                     <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="img-fluid">
@@ -36,16 +53,29 @@
                     </div>
                 </div>
             </div>
+            <small class="float-right">
+                <span title="Likes" id="saveLikeDislike" data-type="like" data-post="{{$post->id}}"
+                      class="mr-2 btn btn-sm btn-outline-primary d-inline font-weight-bold">
+                    Like
+                    <span class="like-count">{{$likeInPost}}</span>
+                </span>
+                <span title="Dislikes" id="saveLikeDislike" data-type="dislike" data-type="dislike"
+                      data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
+                    Dislike
+                    <span class="dislike-count">{{ $dislikeInPost }}</span>
+                </span>
+            </small>
             <div class="row mb-5">
                 <div class="col-lg-4" data-aos="fade-up">
                     <h3>Комментарии <span
-                            class="badge badge-md badge-primary text-uppercase mr-2">{{count($outComments)}}</span>
+                            class="badge badge-md badge-primary text-uppercase mr-2">{{count($comments)}}</span>
                     </h3>
 
                     <img src="{{asset('images/icon-view.png')}}"><span> {{$post_view}}</span>
 
                 </div>
             </div>
+
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">
                     <div class="mt-2 pt-2 border-top">
@@ -57,7 +87,7 @@
                 </div>
             </div>
             <div id="content" style="padding-top: 2rem;">
-                @foreach($outComments as $comment)
+                @foreach($comments as $comment)
 
                     <div id="content" class="row align-items-stretch program">
                         <div class="col-12 border-top border-bottom py-5" data-aos="fade"
@@ -69,18 +99,22 @@
                                     @foreach($users as $user)
                                         @if ($comment->email_user === $user->email)
                                             @if($user->avatar === 'users/default.png')
-                                                <img src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50" class="avatar img-fluid rounded-circle mr-1" alt="avatar">
+                                                <img
+                                                    src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50"
+                                                    class="avatar img-fluid rounded-circle mr-1" alt="avatar">
                                             @else
-                                                <img src="{{asset($user->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="40" alt="avatar">
+                                                <img src="{{asset($user->avatar) }}"
+                                                     class="avatar img-fluid rounded-circle mr-1" width="40"
+                                                     alt="avatar">
                                             @endif
                                         @endif
                                     @endforeach
 
                                     @if(strlen($comment->email_user) < 23)
-                                    <span class="h6">{{$comment->email_user}}</span>
-                                        @else
+                                        <span class="h6">{{$comment->email_user}}</span>
+                                    @else
                                         <span style="font-size: 12px">{{$comment->email_user}}</span>
-                                        @endif
+                                    @endif
                                 </div>
                                 <div class="col-md-9">
                                     <p id="comment-message" class="text-white">{{$comment->message}}</p><br>
@@ -100,7 +134,7 @@
 
                 @guest
                     @if (Route::has('login'))
-                        @if(empty($outComments))
+                        @if(empty($comments))
                             <div class="site-section">
                                 <div class="container">
                                     <div class="bg-dark p-5 rounded mt-3">
@@ -151,7 +185,8 @@
         <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
             <div class="row" data-aos="fade-up" data-aos-delay="500">
                 <div class="col-12 text-center">
-                    <a href="#" class="btn-custom" style="margin-top: 2rem;" data-aos="fade-up" data-aos-delay="400"><span>НАВЕРХ</span></a>
+                    <a href="#" class="btn-custom" style="margin-top: 2rem;" data-aos="fade-up"
+                       data-aos-delay="400"><span>НАВЕРХ</span></a>
                 </div>
             </div>
         </a>
@@ -192,6 +227,7 @@
     </script>
 
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/like.js') }}"></script>
 
 
 @endsection
