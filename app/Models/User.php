@@ -40,4 +40,9 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likedPosts()
+    {
+        return $this->morphedByMany('App\Models\Post', 'likeable')->whereDeletedAt(null);
+    }
 }

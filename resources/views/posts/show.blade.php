@@ -43,9 +43,18 @@
                     </h3>
 
                     <img src="{{asset('images/icon-view.png')}}"><span> {{$post_view}}</span>
+                    @foreach ($post->likes as $user)
+                        {{ $user->name }} likes this !<br>
+                    @endforeach
 
+                    @if ($post->isLiked)
+                        <a href="{{ route('post.like', $post->id) }}">Unlike this shit</a>
+                    @else
+                        <a href="{{ route('post.like', $post->id) }}">Like this awesome post!</a>
+                    @endif
                 </div>
             </div>
+
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">
                     <div class="mt-2 pt-2 border-top">

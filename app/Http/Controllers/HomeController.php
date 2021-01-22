@@ -28,7 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cities = City::all();
         $comments = Comments::all();
         $comments_for_posts = compact('comments');
         $outComments = [];
@@ -40,7 +39,7 @@ class HomeController extends Controller
 
             }
         }
-        return view('profile.index', compact(['outComments', 'cities']));
+        return view('profile.index', compact(['outComments']));
     }
 
     public function save_changes(UserRequest $userRequest)

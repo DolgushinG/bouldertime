@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/profile.js') }}"></script>
 <script>
     $(document).ready(function(){
         $('#telephone').inputmask('+7(999)-999-9999');
