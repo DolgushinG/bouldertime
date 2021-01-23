@@ -57,12 +57,12 @@
                 <span title="Likes" id="saveLikeDislike" data-type="like" data-post="{{$post->id}}"
                       class="mr-2 btn btn-sm btn-outline-primary d-inline font-weight-bold">
                     Like
-                    <span class="like-count">{{$likeInPost}}</span>
+                    <span class="like-count">{{$post->likes()}}</span>
                 </span>
                 <span title="Dislikes" id="saveLikeDislike" data-type="dislike" data-type="dislike"
                       data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
                     Dislike
-                    <span class="dislike-count">{{ $dislikeInPost }}</span>
+                    <span class="dislike-count">{{ $post->dislikes()}}</span>
                 </span>
             </small>
             <div class="row mb-5">
@@ -86,6 +86,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="content" style="padding-top: 2rem;">
                 @foreach($comments as $comment)
 
@@ -168,6 +169,9 @@
                                                   placeholder="Что вы думаете об этом?">{{old('message')}}</textarea>
 
                                     </div>
+                                    <span title="Dislikes" id="message" data-test="dislike" data-type="dislike"
+                                          data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
+                </span>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-12">

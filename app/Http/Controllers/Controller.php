@@ -22,53 +22,20 @@ class Controller extends BaseController
         return view('test');
     }
     public function season_ticket(){
-        $comments = Comments::all();
-        $comments_for_posts = compact('comments');
-        $outComments = [];
-        foreach ($comments_for_posts as $comments_for_post) {
-            foreach ($comments_for_post as $item) {
-                if($item->email_user === Auth()->user()->email){
-                    $outComments[] = $item;
-                }
-
-            }
-        }
-        return view('profile.season_ticket',compact('outComments'));
+        $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
+        return view('profile.season_ticket',compact('comments'));
     }
     public function order_story(){
-        $comments = Comments::all();
-        $comments_for_posts = compact('comments');
-        $outComments = [];
-        foreach ($comments_for_posts as $comments_for_post) {
-            foreach ($comments_for_post as $item) {
-                if($item->email_user === Auth()->user()->email){
-                    $outComments[] = $item;
-                }
-
-            }
-        }
-        return view('profile.order_story',compact('outComments'));
+        $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
+        return view('profile.order_story',compact('comments'));
     }
     public function my_comments(){
-        $comments = Comments::all();
-        $comments_for_posts = compact('comments');
-        $outComments = [];
-        foreach ($comments_for_posts as $comments_for_post) {
-            foreach ($comments_for_post as $item) {
-                if($item->email_user === Auth()->user()->email){
-                    $outComments[] = $item;
-                }
-
-            }
-        }
-        return view('profile.my_comments', compact('outComments'));
+        $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
+        return view('profile.my_comments', compact('comments'));
     }
     public function index_buy_ticket(){
         return view('buy_ticket');
     }
-    public function status(){
 
-        return 'active';
-    }
 
 }

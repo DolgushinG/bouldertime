@@ -9,10 +9,10 @@ class LikeDislike extends Model
 {
     public function likes(){
 
-        return $this->hasMany('App\Models\LikeDislike','post_id')->sum('like');
+        return $this->belongsToMany('App\Models\Post');
     }
     // Dislikes
     public function dislikes(){
-        return $this->hasMany('App\Models\LikeDislike','post_id')->sum('dislike');
+        return $this->belongsToMany('App\Models\Post');
     }
 }

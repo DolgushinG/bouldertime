@@ -20,7 +20,6 @@ class PostsController extends Controller
 
     function save_likedislike(postRequest $request)
     {
-
         $data = new LikeDislike;
         $data->post_id = $request->post;
         if ($request->type == 'like') {
@@ -41,7 +40,7 @@ class PostsController extends Controller
         $comments->author_id = 2;
         $comments->message = $request->input('message');
         $comments->name_user = Auth()->user()->name;
-        $comments->id_user = Auth()->user()->id;
+        $comments->user_id = Auth()->user()->id;
         $comments->email_user = Auth()->user()->email;
 
         $comments->save();
@@ -56,7 +55,7 @@ class PostsController extends Controller
         $comment->author_id = 2;
         $comment->message = $request->input('message');
         $comment->name_user = Auth()->user()->name;
-        $comment->id_user = Auth()->user()->id;
+        $comment->user_id = Auth()->user()->id;
         $comment->email_user = Auth()->user()->email;
 
         $comment->save();
@@ -76,21 +75,11 @@ class PostsController extends Controller
         $post = Models\Post::find($id);
         views($post)->record();
         $likes = LikeDislike::all();
-        $likeInPost = 0;
-        $dislikeInPost = 0;
-
-        foreach ($likes as $like){
-            if($like->post_id === intval($id)){
-                $likeInPost += $like->like;
-                $dislikeInPost += $like->dislike;
-            }
-        }
-
         $comments = App\Comments::where('id_posts','=',$id)->get();
         $countTimeRead = round(strlen($post->body) / 1500);
         $users = App\Models\User::all();
         $post_view = views($post)->count();
-        return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead','likeInPost','dislikeInPost']));
+        return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead']));
     }
 
 }
