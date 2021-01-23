@@ -20,7 +20,7 @@
                                 <div class="py-2 p-md-3">
                                     <!-- Title + Compose button-->
                                     <div class="d-sm-flex align-items-center justify-content-between pb-2 text-center text-sm-left">
-                                        <h1 class="h3 mb-3 text-nowrap">Твои комментарии<span class="d-inline-block align-middle bg-faded-success text-success font-size-ms font-weight-medium rounded-sm py-1 px-2 ml-2">{{count($outComments)}}</span></h1>
+                                        <h1 class="h3 mb-3 text-nowrap">Твои комментарии<span class="d-inline-block align-middle bg-faded-success text-success font-size-ms font-weight-medium rounded-sm py-1 px-2 ml-2">{{count($comments)}}</span></h1>
                                         <div class="mb-3"><a class="btn btn-translucent-primary" href="#message-compose" data-toggle="collapse"><i class="fe-plus mr-2"></i>Compose</a></div>
                                     </div>
                                     <!-- Message compose form-->
@@ -65,7 +65,7 @@
                                     <!-- Message list (table)-->
                                     <table class="table table-hover border-bottom">
                                         <tbody id="message-list">
-                                        @foreach($outComments as $comment)
+                                        @foreach($comments as $comment)
                                         <!-- Message-->
                                         <tr id="item-message-1">
                                             <td class="py-3 align-middle pl-2 pr-0" style="width: 2.5rem;">

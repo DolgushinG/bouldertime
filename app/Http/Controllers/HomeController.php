@@ -28,19 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cities = City::all();
-        $comments = Comments::all();
-        $comments_for_posts = compact('comments');
-        $outComments = [];
-        foreach ($comments_for_posts as $comments_for_post) {
-            foreach ($comments_for_post as $item) {
-                if ($item->email_user === Auth()->user()->email) {
-                    $outComments[] = $item;
-                }
+        $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
 
-            }
-        }
-        return view('profile.index', compact(['outComments', 'cities']));
+        return view('profile.index', compact('comments'));
     }
 
     public function save_changes(UserRequest $userRequest)

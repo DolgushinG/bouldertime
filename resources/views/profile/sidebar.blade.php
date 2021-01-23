@@ -51,7 +51,7 @@
                 href="{{route('my_comments')}}"><i
                     class="fe-message-square font-size-lg opacity-60 mr-2"></i>Мои комментарии<span
                     class="nav-indicator"></span><span
-                    class="text-muted font-size-sm font-weight-normal ml-auto">{{count($outComments)}}</span></a>
+                    class="text-muted font-size-sm font-weight-normal ml-auto">{{count($comments)}}</span></a>
 
             <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
                 Настройки</h3>
