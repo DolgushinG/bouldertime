@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
+use App\Comments;
 use App\Models;
 use App\Models\LikeDislike;
 use App;
 use App\Http\Requests\CommentsRequest;
-use http\Env\Request;
 use App\Http\Requests\postRequest;
 
 class PostsController extends Controller
@@ -80,6 +80,29 @@ class PostsController extends Controller
         $users = App\Models\User::all();
         $post_view = views($post)->count();
         return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead']));
+    }
+
+//    public function getComment(CommentsRequest $request){
+//        if ($request->ajax()){
+//            $comments = App\Comments::where('id_posts','=',$request->id)->get();
+//            return view('posts.commentslist', compact('comments'));
+//        }
+//    }
+
+    public function makeComment(Request $request){
+        if ($request->ajax()){
+            $user = Auth()->user();
+            $comment = new Comments;
+            $comment->author_id = 2;
+            $comment->user_id = $user->id;
+            $comment->id_posts = $request->postid;
+            $comment->message = $request->commenttext;
+            $comment->email_user = $user->email;
+            $comment->name_user = $user->name;
+            $comment->save();
+
+            return response($comment);
+        }
     }
 
 }

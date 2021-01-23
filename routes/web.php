@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +46,6 @@ Route::post('/profile/save', [App\Http\Controllers\HomeController::class, 'save_
 
 // Like Or Dislike
 Route::post('/posts/likedislike',[PostsController::class, 'save_likedislike'])->name('likedislike');
+
+//Route::get('getcomment', [PostController::class,'getComment']);
+Route::post('posts/writecomment', [PostsController::class,'makeComment']);

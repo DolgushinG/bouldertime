@@ -1,6 +1,5 @@
 @extends('layout')
 @section('content')
-
     <div class="site-section site-hero inner">
 
         <div class="container">
@@ -156,33 +155,48 @@
                 @endguest
             </div>
             @auth
-                <div class="container" style="margin-top: 3rem;">
-                    <div class="row">
-                        <div class="col-md-6" data-aos="fade-up">
-                            <form method="POST" action="{{route('send_comments', $post->id)}}">
-                                @csrf
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label class="" for="message">Добавить комментарий</label>
-                                        <textarea name="message" id="message" cols="30" rows="7"
-                                                  class="form-control"
-                                                  placeholder="Что вы думаете об этом?">{{old('message')}}</textarea>
-
-                                    </div>
-                                    <span title="Dislikes" id="message" data-test="dislike" data-type="dislike"
-                                          data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
-                </span>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Опубликовать"
-                                               class="btn btn-primary py-2 px-4 text-white">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                <div id="commentField_{{$post->id}}" class="panel panel-default" style="padding:10px; margin-top:-20px;">
+                    <div id="comment_{{$post->id}}">
                     </div>
+                    <form id="commentForm_{{$post->id}}">
+                        <input type="hidden" value="{{$post->id}}" name="postid">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="text" name="commenttext" id="commenttext" data-id="{{$post->id}}" class="form-control commenttext" placeholder="Write a Comment...">
+                            </div>
+                            <div class="col-md-2" style="margin-left:-25px;">
+                                <button type="button" class="btn btn-primary submitComment" value="{{$post->id}}"><i class="fa fa-comment"></i> Submit</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+{{--                <div class="container" style="margin-top: 3rem;">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-6" data-aos="fade-up">--}}
+{{--                            <form method="POST" action="{{route('send_comments', $post->id)}}">--}}
+{{--                                @csrf--}}
+{{--                                <div class="row form-group">--}}
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <label class="" for="message">Добавить комментарий</label>--}}
+{{--                                        <textarea name="message" id="message" cols="30" rows="7"--}}
+{{--                                                  class="form-control"--}}
+{{--                                                  placeholder="Что вы думаете об этом?">{{old('message')}}</textarea>--}}
+
+{{--                                    </div>--}}
+{{--                                    <span title="Dislikes" id="message" data-test="dislike" data-type="dislike"--}}
+{{--                                          data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">--}}
+{{--                </span>--}}
+{{--                                </div>--}}
+{{--                                <div class="row form-group">--}}
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <input type="submit" value="Опубликовать"--}}
+{{--                                               class="btn btn-primary py-2 px-4 text-white">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
             @endauth
         </div>
@@ -218,7 +232,7 @@
             </div>
         </div>
     </section>
-    <script>//скролл наверх
+    <script type="text/javascript">//скролл наверх
         window.onscroll = function () {
             var scrolled = window.pageYOffset || document.documentElement.scrollTop;
             if (scrolled > 100) {
@@ -232,6 +246,7 @@
 
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/like.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/comment.js') }}"></script>
 
 
 @endsection
