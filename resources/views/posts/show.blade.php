@@ -1,12 +1,14 @@
 @extends('layout')
 @section('content')
-
     <div class="site-section site-hero inner">
 
         <div class="container">
             <div class="row align-items-center titleArticle">
                 <div class="container float-right">
-                    <a href="{{route('posts')}}"><button class="btn btn-sm btn-outline-primary d-inline font-weight-bold float-right">НАЗАД</button></a>
+                    <a href="{{route('posts')}}">
+                        <button class="btn btn-sm btn-outline-primary d-inline font-weight-bold float-right">НАЗАД
+                        </button>
+                    </a>
                 </div>
 
                 <div class="col-md-10 ">
@@ -20,8 +22,8 @@
                         @elseif($countTimeRead < 5 && $countTimeRead > 1 )
                             {{$countTimeRead}} минуты чтения
                         @elseif($countTimeRead < 1)
-                             меньше минуты чтения
-                            @else
+                            меньше минуты чтения
+                        @else
                             {{$countTimeRead}}  минут чтения
                         @endif
                     </span>
@@ -80,59 +82,18 @@
                 <div class="toast-body">
                     <div class="mt-2 pt-2 border-top">
                         <button id="showHideContent" type="button" data-secondname="Скрыть комментарии"
-                                class="btn btn-primary btn-sm" data-aos="fade-up"
-                                data-aos-delay="400" style="width:auto">Посмотреть комментарии
+                                class="btn btn-primary btn-sm comment button" data-aos="fade-up"
+                                data-aos-delay="400" style="width:auto" value="{{ $post->id }}">Посмотреть комментарии
                         </button>
                     </div>
                 </div>
             </div>
-
             <div id="content" style="padding-top: 2rem;">
-                @foreach($comments as $comment)
-
-                    <div id="content" class="row align-items-stretch program">
-                        <div class="col-12 border-top border-bottom py-5" data-aos="fade"
-                             data-aos-delay="200">
-                            <div class="row align-items-stretch">
-                                <div class="col-md-3 text-white mb-3 mb-md-0"><span
-                                        class="h4">{{$comment->name_user}}</span>
-                                    <hr>
-                                    @foreach($users as $user)
-                                        @if ($comment->email_user === $user->email)
-                                            @if($user->avatar === 'users/default.png')
-                                                <img
-                                                    src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50"
-                                                    class="avatar img-fluid rounded-circle mr-1" alt="avatar">
-                                            @else
-                                                <img src="{{asset($user->avatar) }}"
-                                                     class="avatar img-fluid rounded-circle mr-1" width="40"
-                                                     alt="avatar">
-                                            @endif
-                                        @endif
-                                    @endforeach
-
-                                    @if(strlen($comment->email_user) < 23)
-                                        <span class="h6">{{$comment->email_user}}</span>
-                                    @else
-                                        <span style="font-size: 12px">{{$comment->email_user}}</span>
-                                    @endif
-                                </div>
-                                <div class="col-md-9">
-                                    <p id="comment-message" class="text-white">{{$comment->message}}</p><br>
-                                    <span>{{$comment->created_at}}</span>
-                                </div>
-                                @auth
-                                    @if ($comment->email_user === Auth::user()->email)
-                                        <a class="btn btn-edit-comments btn-lg btn-primary"
-                                           href="{{route('edit_comments',[$post->id,$comment->id])}}" role="button">Редактировать</a>
-                                    @endif
-                                @endauth
-                            </div>
-                        </div>
+                <div id="commentField_{{ $post->id }}" class="panel panel-default"
+                     style="padding:10px; margin-top:-20px; display:none;">
+                    <div id="comment_{{ $post->id }}">
                     </div>
-                @endforeach
-
-
+                </div>
                 @guest
                     @if (Route::has('login'))
                         @if(empty($comments))
@@ -154,46 +115,50 @@
                         </div>
                     @endif
                 @endguest
-            </div>
-            @auth
-                <div class="container" style="margin-top: 3rem;">
-                    <div class="row">
-                        <div class="col-md-6" data-aos="fade-up">
-                            <form method="POST" action="{{route('send_comments', $post->id)}}">
-                                @csrf
+                @auth
+                    <div class="container" style="margin-top: 3rem;">
+                        <div class="row">
+                            <div id="commentField_{{$post->id}}" class="panel panel-default"
+                                 style="padding:10px; margin-top:-20px;">
+                            </div>
+                            <form id="commentForm_{{$post->id}}">
+                                <input type="hidden" value="{{$post->id}}" name="postid">
                                 <div class="row form-group">
                                     <div class="col-md-12">
                                         <label class="" for="message">Добавить комментарий</label>
-                                        <textarea name="message" id="message" cols="30" rows="7"
-                                                  class="form-control"
+                                        <textarea type="text" name="commenttext" data-id="{{$post->id}}"
+                                                  id="commenttext" cols="30" rows="7"
+                                                  class="form-control commenttext"
                                                   placeholder="Что вы думаете об этом?">{{old('message')}}</textarea>
-
                                     </div>
-                                    <span title="Dislikes" id="message" data-test="dislike" data-type="dislike"
-                                          data-post="{{$post->id}}" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
-                </span>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Опубликовать"
-                                               class="btn btn-primary py-2 px-4 text-white">
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <button type="button" style="margin-top: 20px;
+                                            margin-left: 15px;" value="{{$post->id}}"
+                                                    class="btn btn-primary py-2 px-4 text-white submitComment">
+                                                <i class="fa fa-comment"></i>
+                                                Опубликовать
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>
-
-            @endauth
-        </div>
-        <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
-            <div class="row" data-aos="fade-up" data-aos-delay="500">
-                <div class="col-12 text-center">
-                    <a href="#" class="btn-custom" style="margin-top: 2rem;" data-aos="fade-up"
-                       data-aos-delay="400"><span>НАВЕРХ</span></a>
-                </div>
+                @endauth
             </div>
-        </a>
+        </div>
+
+
+    </div>
+    <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
+        <div class="row" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-12 text-center">
+                <a href="#" class="btn-custom" style="margin-top: 2rem;" data-aos="fade-up"
+                   data-aos-delay="400"><span>НАВЕРХ</span></a>
+            </div>
+        </div>
+    </a>
     </div>
     <section class="section section-lg pb-5 bg-soft">
         <div class="container">
@@ -218,7 +183,7 @@
             </div>
         </div>
     </section>
-    <script>//скролл наверх
+    <script type="text/javascript">//скролл наверх
         window.onscroll = function () {
             var scrolled = window.pageYOffset || document.documentElement.scrollTop;
             if (scrolled > 100) {
@@ -232,6 +197,7 @@
 
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/like.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/comment.js') }}"></script>
 
 
 @endsection
