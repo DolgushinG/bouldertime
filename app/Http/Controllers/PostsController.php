@@ -33,21 +33,6 @@ class PostsController extends Controller
         ]);
     }
 
-    public function send_comments($id, CommentsRequest $request)
-    {
-        $comments = new App\Comments();
-        $comments->id_posts = intval($id);
-        $comments->author_id = 2;
-        $comments->message = $request->input('message');
-        $comments->name_user = Auth()->user()->name;
-        $comments->user_id = Auth()->user()->id;
-        $comments->email_user = Auth()->user()->email;
-
-        $comments->save();
-
-        return redirect()->route('show', $id)->with('success', 'Комментарий успешно добавлен');
-    }
-
     public function send_edit_comment($id_post, $id_comment, CommentsRequest $request)
     {
         $comment = App\Comments::find($id_comment);
@@ -69,25 +54,34 @@ class PostsController extends Controller
         $post = Models\Post::find($id_post);
         return view('posts.edit_comments', compact('comment', 'post'));
     }
-
-    public function show($id)
+    public function delete_comment(Request $request)
     {
-        $post = Models\Post::find($id);
-        views($post)->record();
-        $likes = LikeDislike::all();
-        $comments = App\Comments::where('id_posts','=',$id)->get();
-        $countTimeRead = round(strlen($post->body) / 1500);
-        $users = App\Models\User::all();
-        $post_view = views($post)->count();
-        return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead']));
+        if ($request->ajax()) {
+            $comment = new Comments;
+            $id_comment = $request->input('comment');
+            App\Comments::find($id_comment)->delete();
+            return response($comment);
+        }
     }
 
-//    public function getComment(CommentsRequest $request){
-//        if ($request->ajax()){
-//            $comments = App\Comments::where('id_posts','=',$request->id)->get();
-//            return view('posts.commentslist', compact('comments'));
-//        }
-//    }
+    public function show($id, Request $request)
+    {
+        $post = Models\Post::find($id);
+        $users = App\Models\User::all();
+        $comments = App\Comments::where('id_posts','=',$id)->get();
+        if($post == null){
+            $post_id = $request->input('id');
+            $comments = App\Comments::where('id_posts','=',$post_id)->get();
+            return view('posts.commentslist', compact(['comments','users','post_id']));
+        }
+        views($post)->record();
+        $likes = LikeDislike::all();
+
+        $countTimeRead = round(strlen($post->body) / 1500);
+
+        $post_view = views($post)->count();
+        return view('posts.show', compact(['comments','post', 'post_view', 'users', 'countTimeRead']));
+    }
 
     public function makeComment(Request $request){
         if ($request->ajax()){

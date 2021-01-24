@@ -18,9 +18,11 @@ use App\Http\Controllers\PostController;
 
 Route::get('/posts', [PostsController::class, 'index'])->name('posts');
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
+
 Route::post('/posts/{post}/comments', [PostsController::class, 'send_comments'])->name('send_comments')->middleware('verified');
 Route::get('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'edit_comments'])->name('edit_comments')->middleware('verified');;
 Route::post('/posts/{post}/comments/{comment}/edit', [PostsController::class, 'send_edit_comment'])->name('send_edit_comment')->middleware('verified');;
+
 
 Route::get('/contact', [ContactController::class, 'index_contact'])->name('contact');
 
@@ -47,5 +49,5 @@ Route::post('/profile/save', [App\Http\Controllers\HomeController::class, 'save_
 // Like Or Dislike
 Route::post('/posts/likedislike',[PostsController::class, 'save_likedislike'])->name('likedislike');
 
-//Route::get('getcomment', [PostController::class,'getComment']);
-Route::post('posts/writecomment', [PostsController::class,'makeComment']);
+Route::post('/posts/writecomment', [PostsController::class,'makeComment'])->middleware('verified');
+Route::post('/posts/deletecomment', [PostsController::class, 'delete_comment'])->name('delete_comment')->middleware('verified');;
