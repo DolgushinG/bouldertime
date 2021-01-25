@@ -17,20 +17,7 @@
 //         }
 //     });
 // });
-// if(Cookies.get("_hidemode") === "Enabled"){
-//     $("#content").addClass('hide_comments');
-//     document.querySelector("#showHideContent").innerHTML = 'Посмотреть комментарии';
-//     document.querySelector("#showHideContent").dataset.secondname = 'Скрыть комментарии';
-// } else if (Cookies.get("_showmode") === "Enabled") {
-//     $("#content").addClass('show_comments');
-//     document.querySelector("#showHideContent").innerHTML = 'Скрыть комментарии';
-//     document.querySelector("#showHideContent").dataset.secondname = 'Посмотреть комментарии';
-// } else {
-//     Cookies.set('_hidemode', 'Enabled');
-//     document.querySelector("#showHideContent").innerHTML = 'Посмотреть комментарии';
-//     document.querySelector("#showHideContent").dataset.secondname = 'Скрыть комментарии';
-//     $("#content").addClass('hide_comments');
-// }
+
 
 
     var smoothJumpUp = function () {

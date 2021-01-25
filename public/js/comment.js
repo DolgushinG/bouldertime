@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
@@ -25,9 +26,13 @@ $(document).ready(function() {
 
         if($('#commentField_'+id).is(':visible')){
             $('#commentField_'+id).slideUp();
+            Cookies.remove('_showmode', 'Enabled');
+            Cookies.set('_hidemode', 'Enabled');
         }
         else{
             $('#commentField_'+id).slideDown();
+            Cookies.remove('_hidemode', 'Enabled');
+            Cookies.set('_showmode', 'Enabled');
             getComments(id);
         }
     });
@@ -49,15 +54,40 @@ $(document).ready(function() {
         }
 
     });
-    function getComments(id){
-        $.ajax({
-            url: 'getcomment',
-            data: {id:id},
-            success: function(data){
-                $('#comment_'+id).html(data);
-            }
-        });
-    }
-
 });
+function getComments(id){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        url: 'getcomments',
+        data: {id:id},
+        success: function(data){
+            $('#comment_'+id).html(data);
+        }
+    });
+}
 
+if(Cookies.get("_hidemode") === "Enabled"){
+    $('#commentField_'+id).slideUp();
+    let id = $('.comment').val();
+    $('#commentField_'+id).addClass('hide_comments');
+    document.querySelector("#showHideContent").innerHTML = 'Посмотреть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Скрыть комментарии';
+} else if (Cookies.get("_showmode") === "Enabled") {
+    let id = $('.comment').val();
+    $('#commentField_'+id).addClass('show_comments');
+    getComments(id);
+    $('#commentField_'+id).slideDown();
+    document.querySelector("#showHideContent").innerHTML = 'Скрыть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Посмотреть комментарии';
+} else {
+    let id = $('.comment').val();
+    Cookies.set('_hidemode', 'Enabled');
+    document.querySelector("#showHideContent").innerHTML = 'Посмотреть комментарии';
+    document.querySelector("#showHideContent").dataset.secondname = 'Скрыть комментарии';
+    $('#commentField_'+id).addClass('hide_comments');
+}
