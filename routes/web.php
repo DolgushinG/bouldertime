@@ -52,4 +52,5 @@ Route::post('/posts/likedislike',[PostsController::class, 'save_likedislike'])->
 Route::post('/posts/writecomment', [PostsController::class,'makeComment'])->middleware('verified');
 Route::post('/posts/getcomments', [PostsController::class,'getComments']);
 Route::post('/posts/deletecomment', [PostsController::class, 'delete_comment'])->name('delete_comment')->middleware('verified');;
-Route::post('/posts/writerepl', [PostsController::class, 'makeRepl'])->name('makeRepl')->middleware('verified');;
+Route::post('/posts/writerepl', [PostsController::class, 'makeRepl'])->name('makeRepl')->middleware('verified');
+Route::post('/posts/getreplies', [PostsController::class, 'getreplies'])->name('makerepl');

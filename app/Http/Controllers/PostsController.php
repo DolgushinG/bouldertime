@@ -87,12 +87,28 @@ class PostsController extends Controller
         $post = Models\Post::find($post_id);
         $users = App\Models\User::all();
         $comments = App\Comments::where('id_posts', '=', $post_id)->get();
-        $repl_id = $request->input('id_comment');
-        $replies = Replies::where('id_comment', '=', $repl_id)->get();
+        $comment_id = $request->id_comment;
+        $replies = Replies::where('id_comment', '=', $comment_id)->get();
         $comments = App\Comments::where('id_posts', '=', $post_id)->get();
         return view('posts.commentslist', compact(['comments', 'users', 'post_id', 'replies']));
     }
+    public function getreplies(Request $request)
+    {
 
+        $users = App\Models\User::all();
+        $repliesAll = Replies::all();
+        $comments = App\Comments::where('id_posts', '=', $request->input('id'))->get();
+        $replies = [];
+        foreach($comments as $comment){
+            foreach ($repliesAll as $repl){
+                if ($comment->id ===$repl->id_comment) {
+                    $replies[] = $repl;
+                }
+            }
+        }
+        
+        return view('posts.replies', compact(['replies','users']));
+    }
     public function makeComment(Request $request)
     {
         if ($request->ajax()) {
@@ -112,17 +128,17 @@ class PostsController extends Controller
 
     public function makeRepl(Request $request)
     {
+
         if ($request->ajax()) {
             $user = Auth()->user();
             $comment = new Replies;
             $comment->author_id = 2;
             $comment->user_id = $user->id;
             $comment->id_comment = $request->comment_id;
-            $comment->message = $request->commenttext;
+            $comment->repl = $request->relptext;
             $comment->email_user = $user->email;
             $comment->name_user = $user->name;
             $comment->save();
-
             return response($comment);
         }
     }
