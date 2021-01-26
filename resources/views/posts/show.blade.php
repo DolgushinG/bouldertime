@@ -198,6 +198,7 @@
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/like.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/comment.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/replies.js') }}"></script>
 
 
 @endsection
