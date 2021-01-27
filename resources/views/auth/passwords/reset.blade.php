@@ -5,16 +5,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-9 col-sm-11">
-                    <h1 class="h2 pb-3">{{ __('Reset Password') }}</h1>
+                    <h1 class="h2 pb-3">{{ __('Восстановление пароля') }}</h1>
                     <p class="font-size-sm">Изменить ваш пароль в три шага. 
                         Это поможет вам сохранить ваш пароль в безопастности.</p>
                     <ul class="list-unstyled font-size-sm pb-1 mb-4">
                         <li><span class="text-primary font-weight-semibold mr-1">1.</span>Заполните ваш email address
                             ниже.
                         </li>
-                        <li><span class="text-primary font-weight-semibold mr-1">2.</span>Мы отправим вам email временный код.
-                        </li>
-                        <li><span class="text-primary font-weight-semibold mr-1">3.</span>Используйте код для изменения вашего пароля.
+                        <li><span class="text-primary font-weight-semibold mr-1">3.</span>Напишите новый пароль для изменения вашего входа в личный кабинет.
                         </li>
                     </ul>
                     <div class="bg-dark rounded-lg px-3 py-4 p-sm-4">
@@ -64,7 +62,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Reset Password') }}
+                                        {{ __('Восстановить пароль') }}
                                     </button>
                                 </div>
                             </div>

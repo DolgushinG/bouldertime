@@ -7,7 +7,8 @@ $(document).ready(function() {
     });
     $(document).on('click', '.del_comment', function(){
         let id = $(this).val();
-
+        let comment_id = $('.del_comment').data('comment')
+        console.log(comment_id);
         $.ajax({
             type: 'POST',
             url: 'deletecomment',
