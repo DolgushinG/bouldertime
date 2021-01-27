@@ -5,10 +5,10 @@
             @include('layouts.slider')
         @endif
     @endforeach
-    <div class="site-section site-hero">
+    <div class="site-section site-hero" style="margin-top: 11rem!important;margin-bottom: 6rem!important;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="row align-items-center">
                         <div class="col-lg-6 mb-6 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
                             <div class="grow">

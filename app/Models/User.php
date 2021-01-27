@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -43,5 +44,11 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 
     public function comments(){
         return $this->hasMany('App\Comments')->get();
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        // Your your own implementation.
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
