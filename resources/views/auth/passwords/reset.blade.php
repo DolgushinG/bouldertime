@@ -6,17 +6,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-9 col-sm-11">
                     <h1 class="h2 pb-3">{{ __('Reset Password') }}</h1>
-                    <p class="font-size-sm">Change your password in three easy steps. This helps to keep your new
-                        password secure.</p>
+                    <p class="font-size-sm">Изменить ваш пароль в три шага. 
+                        Это поможет вам сохранить ваш пароль в безопастности.</p>
                     <ul class="list-unstyled font-size-sm pb-1 mb-4">
-                        <li><span class="text-primary font-weight-semibold mr-1">1.</span>Fill in your email address
-                            below.
+                        <li><span class="text-primary font-weight-semibold mr-1">1.</span>Заполните ваш email address
+                            ниже.
                         </li>
-                        <li><span class="text-primary font-weight-semibold mr-1">2.</span>We'll email you a temporary
-                            code.
+                        <li><span class="text-primary font-weight-semibold mr-1">2.</span>Мы отправим вам email временный код.
                         </li>
-                        <li><span class="text-primary font-weight-semibold mr-1">3.</span>Use the code to change your
-                            password on our secure website.
+                        <li><span class="text-primary font-weight-semibold mr-1">3.</span>Используйте код для изменения вашего пароля.
                         </li>
                     </ul>
                     <div class="bg-dark rounded-lg px-3 py-4 p-sm-4">
@@ -24,7 +22,7 @@
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="form-group">
-                                <label class="form-label" for="recovery-email">Enter your email address</label>
+                                <label class="form-label" for="recovery-email">Введите email address</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                        name="email" value="{{ $email ?? old('email') }}" required autocomplete="email"
                                        autofocus>
@@ -34,7 +32,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <div class="invalid-feedback">Please provide a valid email address!</div>
+                                <div class="invalid-feedback">Введите существующий email address!</div>
                             </div>
                             <div class="form-group row">
                                 <label for="password"

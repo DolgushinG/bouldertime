@@ -14,7 +14,9 @@
                         <input type='file' id="avatar" name="avatar" style="display:none">
                         <i class="fe-refresh-cw mr-2">
                             <div class="p mb-0 font-size-small text-muted">
-                                *jpg,png
+                                1.Загрузите фото *jpg,png
+                                2.Сохраните аватар
+                                
                             </div>
                         </i>
                     </div>
@@ -55,6 +57,8 @@
 
             <h3 class="d-block bg-dark font-size-sm font-weight-semibold mb-0 px-4 py-3">
                 Настройки</h3>
+                @foreach(App\Status::all() as $status)
+                @if($status->status)
             <div class="d-flex align-items-center border-top" style="margin-left: 9px"><a
                     class="d-block w-100 nav-link-style px-4 py-3"
                     href="account-notifications.html">Уведомления</a>
@@ -66,6 +70,8 @@
                     </div>
                 </div>
             </div>
+            @endif
+            @endforeach
             @auth
                 <a class="d-flex align-items-center nav-link-style px-4 py-3 border-top"
                    href="{{ route('logout') }}" onclick="event.preventDefault();

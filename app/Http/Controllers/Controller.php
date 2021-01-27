@@ -7,13 +7,16 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Comments;
+use App\Models;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index_home(){
-        return view('home');
+        $newPost = Models\Post::latest('created_at')->first();
+        $posts = Models\post::paginate(6);
+        return view('home', compact('posts', 'newPost'));
     }
     public function index_about(){
         return view('about');
@@ -30,7 +33,7 @@ class Controller extends BaseController
         return view('profile.order_story',compact('comments'));
     }
     public function my_comments(){
-        $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
+        $comments = Comments::where('email_user', '=', Auth()->user()->email)->paginate(6);
         return view('profile.my_comments', compact('comments'));
     }
     public function index_buy_ticket(){

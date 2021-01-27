@@ -61,7 +61,7 @@
                                                        class="form-control @error('telephone') is-invalid @enderror"
                                                        name="telephone"
                                                        value="{{ Auth::user()->telephone }}" required
-                                                       autocomplete="telephone" autofocus>
+                                                       autocomplete="telephone">
                                                 @error('telephone')
                                                 <span class="invalid-feedback" role="alert">
                                                                                 <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
 
 
                                             <div class="col-12">
-                                                <hr class="mt-2 mb-4">
+
                                                 <div
                                                     class="d-flex flex-wrap justify-content-between align-items-center">
                                                     {{--                                                    <div class="custom-control custom-checkbox d-block">--}}
