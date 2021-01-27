@@ -1,112 +1,67 @@
 @extends('layout')
-
 @section('content')
-
-    <div class="container">
-        <h1 class="page-header text-center">Laravel User Post using AJAX</h1>
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form id="postForm">
-                            <textarea class="form-control" name="post" id="post" placeholder="What's on your mind?"></textarea>
-                            <button type="button" id="postBtn" class="btn btn-primary" style="margin-top:5px;"><i class="fa fa-pencil-square-o"></i> POST</button>
-                        </form>
+<div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <div class="d-flex flex-column comment-section">
+                <div class="bg-white p-2">
+                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                    </div>
+                    <div class="mt-2">
+                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
-                <div id="postList"></div>
+                <div class="bg-white">
+                    <div class="d-flex flex-row fs-12">
+                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                    </div>
+                </div>
+                <div class="bg-light p-2">
+                    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                    <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
+<style>
+body {
+    background: #eee
+}
 
-    <script>
+.date {
+    font-size: 11px
+}
 
-        $(document).ready(function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+.comment-text {
+    font-size: 12px
+}
 
-            showPost();
+.fs-12 {
+    font-size: 12px
+}
 
-            $('#postBtn').click(function(){
-                let post = $('#post').val();
-                if(post==''){
-                    alert('Please write a Post first!');
-                    $('#post').focus();
-                }
-                else{
-                    let postForm = $('#postForm').serialize();
-                    let token = $('meta[name="csrf-token"]').attr('content');
-                    $.ajax({
-                        type: 'POST',
-                        url: 'test/post',
-                        data: postForm,token,
-                        dataType: 'json',
-                        success: function(){
-                            showPost();
-                            $('#postForm')[0].reset();
-                        },
-                    });
-                }
-            });
+.shadow-none {
+    box-shadow: none
+}
 
-            $(document).on('click', '.comment', function(){
-                var id = $(this).val();
-                if($('#commentField_'+id).is(':visible')){
-                    $('#commentField_'+id).slideUp();
-                }
-                else{
-                    $('#commentField_'+id).slideDown();
-                    getComment(id);
-                }
-            });
+.name {
+    color: #007bff
+}
 
-            $(document).on('click', '.submitComment', function(){
-                var id = $(this).val();
-                if($('#commenttext').val()==''){
-                    alert('Please write a Comment First!');
-                }
-                else{
-                    var commentForm = $('#commentForm_'+id).serialize();
-                    $.ajax({
-                        type: 'POST',
-                        url: 'test/writecomment',
-                        data: commentForm,
-                        success: function(){
-                            getComment(id);
-                            $('#commentForm_'+id)[0].reset();
-                        },
-                    });
-                }
+.cursor:hover {
+    color: blue
+}
 
-            });
+.cursor {
+    cursor: pointer
+}
 
-        });
-
-        function showPost(){
-            $.ajax({
-                url: 'test/show',
-                success: function(data){
-                    $('#postList').html(data);
-                },
-            });
-        }
-
-        function getComment(id){
-            $.ajax({
-                url: 'post/getcomment',
-                data: {id:id},
-                success: function(data){
-                    $('#comment_'+id).html(data);
-                }
-            });
-        }
-    </script>
+.textarea {
+    resize: none
+}
+</style>

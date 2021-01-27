@@ -90,7 +90,7 @@
             </div>
             <div id="content" style="padding-top: 2rem;">
                 <div id="commentField_{{ $post->id }}" class="panel panel-default"
-                     style="padding:10px; margin-top:-20px; display:none;">
+                     style="margin-top:-20px; display:none;">
                     <div id="comment_{{ $post->id }}">
                     </div>
                 </div>
