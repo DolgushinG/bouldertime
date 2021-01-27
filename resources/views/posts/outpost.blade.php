@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row mb-7">
             <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="300">
-                <div class="card bg-dark shadow-soft flex-lg-row p-4" style="background-color: #1a1c2585!important"><a
+                <div class="card postcard bg-dark shadow-soft flex-lg-row p-4" style="background-color: #1a1c2585!important"><a
                         href="{{route('show', $newPost->id)}}" class="col-12 col-lg-6"><img src="{{asset('storage/'.$newPost->image)}}" alt="imageposts"
                                                                              class="card-img-top"></a>
-                    <div class="card-body py-4 p-lg-5" style="padding-top: 2px!important;"><a href="{{route('show', $newPost->id)}}" class="mb-3 d-block">
-                            <h2>{{$newPost->title}}</h2></a>
+                    <div class="card-body py-4 p-lg-5" style="padding-top: 5px!important;"><a href="{{route('show', $newPost->id)}}" class="mb-3 d-block">   
+                        <h2>{{$newPost->title}}</h2></a>
                         <p class="mb-3">{!!mb_strcut($newPost->body,0,400)!!}{{'...'}}</p>
                         <div class="d-flex align-items-center"><img class="avatar img-fluid rounded-circle mr-1"
                                                                     src="https://eu.ui-avatars.com/api/?name=Boulder+Time&background=a73737&color=050202&font-size=0.33&size=30"
@@ -20,11 +20,10 @@
                 </div>
             </div>
             @foreach($posts as $post)
-
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 blog-entry" data-aos="fade-up" data-aos-delay="200">
-                    <a href="{{route('show', $post->id)}}" class="d-block mb-4">
-                        <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="img-fluid">
-                    </a>
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 blog-entry shadow-soft" data-aos="fade-up" data-aos-delay="200">
+                   <div class="postcard"> <a href="{{route('show', $post->id)}}" class="d-block mb-4">
+                        <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="card-img">
+                    </a></div>
                     <h2 class="mb-4"><a href="{{route('show', $post->id)}}">{{$post->title}}</a></h2>
                     <p>{!!mb_strcut($post->body,0,200)!!}{{'...'}}</p>
                     <div class="mb-4 post-meta d-flex align-items-center">
@@ -36,10 +35,8 @@
                         </div>
                     </div>
                 </div>
+            
             @endforeach
-
         </div>
-        <p>{{$posts->onEachSide(5)->links()}}</p>
-
     </div>
 </div>

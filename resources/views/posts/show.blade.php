@@ -42,9 +42,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400"><span
+                <div class="col-md-2" data-aos="fade-up" data-aos-delay="400"><span
                         class="text-primary">{{$post->created_at}}</span></div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-9" data-aos="fade-up" data-aos-delay="500">
                     <p>{!!$post->body!!}</p>
 
                     <div class="d-flex coordinator align-items-center">
@@ -55,6 +55,8 @@
                     </div>
                 </div>
             </div>
+            <div class="row mb-5">
+                <div class="col-lg-10" style="margin-top: 2rem;!important" data-aos="fade-up">
             <small class="float-right">
                 <span title="Likes" id="saveLikeDislike" data-type="like" data-post="{{$post->id}}"
                       class="mr-2 btn btn-sm btn-outline-primary d-inline font-weight-bold">
@@ -67,6 +69,8 @@
                     <span class="dislike-count">{{ $post->dislikes()}}</span>
                 </span>
             </small>
+                </div>
+            </div>
             <div class="row mb-5">
                 <div class="col-lg-4" data-aos="fade-up">
                     <h3>Комментарии <span
@@ -90,7 +94,7 @@
             </div>
             <div id="content" style="padding-top: 2rem;">
                 <div id="commentField_{{ $post->id }}" class="panel panel-default"
-                     style="padding:10px; margin-top:-20px; display:none;">
+                     style="margin-top:-20px; display:none;">
                     <div id="comment_{{ $post->id }}">
                     </div>
                 </div>
@@ -133,7 +137,7 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-md-12">
-                                            <button type="button" style="margin-top: 20px;
+                                            <button disabled type="button" style="margin-top: 20px;
                                             margin-left: 15px;" value="{{$post->id}}"
                                                     class="btn btn-primary py-2 px-4 text-white submitComment">
                                                 <i class="fa fa-comment"></i>
@@ -160,29 +164,7 @@
         </div>
     </a>
     </div>
-    <section class="section section-lg pb-5 bg-soft">
-        <div class="container">
-            <div class="row justify-content-center">
-                <form action="#">
-                    <label class for="email">Подпишись на новые посты</label>
-                    <div class="form-group bg-dark shadow-soft rounded-pill mb-4 px-3 py-2">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <div class="input-group input-group-merge shadow-none">
-                                    <input type="email" id="email"
-                                           class="form-control border-0 form-control-flush shadow-none pb-2"
-                                           placeholder="example@email.com..." required=""></div>
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-block btn-primary rounded-pill">Subscribe
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+    
     <script type="text/javascript">//скролл наверх
         window.onscroll = function () {
             var scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -198,7 +180,7 @@
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/like.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/comment.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/replies.js') }}"></script>
+
 
 
 @endsection

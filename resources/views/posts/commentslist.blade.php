@@ -1,6 +1,43 @@
 @foreach($comments as $comment)
+    <div  id="content" class="container bootstrap snippets bootdey">
+    <div class="row" style="margin-top:3rem; margin-right: -30px;
+    margin-left: -28px;!important">
+		<div class="col-md-12" data-aos="fade" data-aos-delay="200">
+		    <div class="blog-comment">
 
-    <div id="content" class="row align-items-stretch program">
+				<ul class="comments">
+				<li class="clearfix">
+                @foreach($users as $user)
+                        @if ($comment->email_user === $user->email)
+                            @if($user->avatar === 'users/default.png')
+                                <img
+                                    src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50"
+                                    class="avatar" alt="avatar">
+                            @else
+                                <img src="{{asset($user->avatar) }}"
+                                     class="avatar img-fluid rounded-circle mr-1" width="40"
+                                     alt="avatar">
+                            @endif
+                        @endif
+                    @endforeach
+
+				  <div class="post-comments bg-dark">
+                      <p class="meta">{{$comment->created_at}} <a class="textincomment"> {{$comment->name_user}} : {{$comment->email_user}}</a> <i class="pull-right"></a></i></p>
+				      <p class="text-white">
+				          {{$comment->message}}
+				      </p>
+                  </div>
+                    {{-- <div class="bg-dark p-2">
+                        <div class="d-flex flex-row align-items-start"><textarea type="text" name="relptext" id="repltext" data-comment="{{$comment->id}}" class="form-control ml-1 shadow-none repltext textarea"></textarea></div>
+                        <div class="mt-2 text-right "><button class="btn btn-primary btn-sm shadow-none submitRepl" value="{{ $comment->id }}" type="button">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                    </div> --}}
+				</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+    {{-- <div id="content" class="row align-items-stretch program">
         <div class="col-12 border-top border-bottom py-5" data-aos="fade"
              data-aos-delay="200">
             <div class="row align-items-stretch">
@@ -62,7 +99,7 @@
                 @endauth
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 @endforeach
