@@ -98,7 +98,7 @@
                                         @if(Auth::user()->avatar === 'users/default.png')
                                         <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="avatar">
                                         @else
-                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset(Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
+                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset('storage/'.Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
                                             @endif
                                     </a>
 
