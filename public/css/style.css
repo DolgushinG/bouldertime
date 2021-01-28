@@ -1112,36 +1112,54 @@ a {
     width: 100%;
 }
 
-/* CUSTOMIZE THE CAROUSEL
+/* /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
-.carousel {
+/* .carousel {
     margin-top: 0rem;
     margin-bottom: 4rem;
 
 }
 
 /* Since positioning the image, we need to help out the caption */
-.carousel-caption {
+/* .carousel-caption {
     bottom: 9rem;
     z-index: 10;
-}
+} */
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
+/* .carousel-item {
     height: 40rem;
     background-color: #777;
-}
-
+} */
+/* 
 .carousel-item > img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: auto;
+} */
+
+.carousel {
+  background:#007aeb;
 }
 
+/*
+Forces image to be 100% width and not max width of 100%
+*/
+.carousel-item .img-fluid {
+  width:100%;
+}
+
+/* 
+anchors are inline so you need ot make them block to go full width
+*/
+.carousel-item a {
+  display: block;
+  width:100%;
+}
 
 .darkened {
     position: relative;

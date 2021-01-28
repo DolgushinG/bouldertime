@@ -8002,7 +8002,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .fixed-top {
-    position: fixed;
+    position: fixed!important;
     top: 0;
     right: 0;
     left: 0;

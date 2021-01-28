@@ -13,7 +13,7 @@
                                         <img src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50"
                                             class="avatar" alt="avatar">
                                     @else
-                                        <img src="{{ asset($user->avatar) }}"
+                                        <img src="{{ asset('storage/'.$user->avatar) }}"
                                             class="avatar img-fluid rounded-circle mr-1" width="40" alt="avatar">
                                     @endif
                                 @endif

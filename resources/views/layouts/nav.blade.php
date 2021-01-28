@@ -7,7 +7,7 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
-    <header class="site-navbar py-3 " role="banner" >
+    <header class="site-navbar py-3 fixed-top navbar-dark" role="banner">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-11 col-xl-2">
