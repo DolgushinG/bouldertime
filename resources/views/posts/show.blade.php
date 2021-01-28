@@ -98,7 +98,7 @@
             </div>
             @guest
                 @if (Route::has('login'))
-                    @if (empty($comments))
+                    @if (count($comments) == 0)
                         <div class="site-section">
                             <div class="container">
                                 <div class="bg-dark p-5 rounded mt-3">

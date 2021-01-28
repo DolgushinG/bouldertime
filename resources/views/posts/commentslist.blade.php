@@ -18,15 +18,16 @@
                                     @endif
                                 @endif
                             @endforeach
-                            @auth
-                                <div class="post-comments bg-dark">
-                                    <p class="meta">{{ $comment->created_at }} <a class="textincomment">
-                                            {{ $comment->name_user }} : {{ $comment->email_user }}</a> <i
-                                            class="pull-right"></a></i></p>
 
-                                    <p class="text-white">
-                                        {{ $comment->message }}
-                                    </p>
+                            <div class="post-comments bg-dark">
+                                <p class="meta">{{ $comment->created_at }} <a class="textincomment">
+                                        {{ $comment->name_user }} : {{ $comment->email_user }}</a> <i
+                                        class="pull-right"></a></i></p>
+
+                                <p class="text-white">
+                                    {{ $comment->message }}
+                                </p>
+                                @auth
                                     @if ($comment->email_user === Auth::user()->email)
                                         <a class="textcomment" href="{{ route('edit_comments', [$post_id, $comment->id]) }}"
                                             role="button">Редактировать комментарий</a>

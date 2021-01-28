@@ -5,7 +5,7 @@
             @if(Auth::user()->avatar === 'users/default.png')
                 <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=150" class="avatar img-fluid rounded-circle mr-1" alt="{{ Auth::user()->name }}">
             @else
-                <img src="{{asset(Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="150" alt="avatar">
+                <img src="{{asset('storage/'.Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="150" alt="avatar">
             @endif
             <form method="POST" action="{{route('save_avatar')}}" enctype="multipart/form-data">
                 @csrf

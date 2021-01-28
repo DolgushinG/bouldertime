@@ -8,7 +8,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="cvc darkened">
-            <img class="d-block img-responsive" src="{{asset('/images/slider7.jpg')}}" alt="First slide">
+            <img class="d-block img-responsive" src="{{asset('storage/images/slider7.jpg')}}" alt="First slide">
             </div>
             <div class="container">
                 <div class="carousel-caption text-left">
@@ -20,7 +20,7 @@
         </div>
         <div class="carousel-item">
             <div class="cvc darkened">
-            <img class="d-block img-responsive" src="{{asset('/images/slider8.jpg')}}" alt="Second slide">
+            <img class="d-block img-responsive" src="{{asset('storage/images/slider8.jpg')}}" alt="Second slide">
             </div>
             <div class="container">
                 <div class="carousel-caption">
@@ -32,7 +32,7 @@
         </div>
         <div class="carousel-item">
             <div class="cvc darkened">
-            <img class="d-block img-responsive" src="{{asset('/images/slider1.jpg')}}" alt="Third slide">
+            <img class="d-block img-responsive" src="{{asset('storage/images/slider1.jpg')}}" alt="Third slide">
             </div>
             <div class="container">
                 <div class="carousel-caption text-right">
