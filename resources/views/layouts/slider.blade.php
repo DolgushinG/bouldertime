@@ -74,7 +74,7 @@
         }
     };
 
-    $('#carousel').carousel ({
+    $('#myCarousel').carousel ({
         interval: isMobile.any() ? false : 5000
     });
 </script>
