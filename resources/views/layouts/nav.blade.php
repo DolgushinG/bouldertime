@@ -7,11 +7,11 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
-    <header class="site-navbar py-3 " role="banner" >
+    <header class="site-navbar py-3 fixed-top navbar-dark" style="background-color:#343a40a3!important" role="banner">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-11 col-xl-2">
-                    <h1 class="mb-0"><a href="{{route('home')}}" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span> </a></h1>
+                    <h1 class="mb-0"><a href="{{route('home')}}" style="color:white!important;" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span> </a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation navbar-collapse position-relative text-right fixed-top" role="navigation">
@@ -98,7 +98,7 @@
                                         @if(Auth::user()->avatar === 'users/default.png')
                                         <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="avatar">
                                         @else
-                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset(Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
+                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset('storage/'.Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
                                             @endif
                                     </a>
 

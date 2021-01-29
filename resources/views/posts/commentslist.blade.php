@@ -13,20 +13,21 @@
                                         <img src="https://eu.ui-avatars.com/api/?name={{ $user->name }}&background=a73737&color=050202&font-size=0.33&size=50"
                                             class="avatar" alt="avatar">
                                     @else
-                                        <img src="{{ asset($user->avatar) }}"
+                                        <img src="{{ asset('storage/'.$user->avatar) }}"
                                             class="avatar img-fluid rounded-circle mr-1" width="40" alt="avatar">
                                     @endif
                                 @endif
                             @endforeach
-                            @auth
-                                <div class="post-comments bg-dark">
-                                    <p class="meta">{{ $comment->created_at }} <a class="textincomment">
-                                            {{ $comment->name_user }} : {{ $comment->email_user }}</a> <i
-                                            class="pull-right"></a></i></p>
 
-                                    <p class="text-white">
-                                        {{ $comment->message }}
-                                    </p>
+                            <div class="post-comments bg-dark">
+                                <p class="meta">{{ $comment->created_at }} <a class="textincomment">
+                                        {{ $comment->name_user }} : {{ $comment->email_user }}</a> <i
+                                        class="pull-right"></a></i></p>
+
+                                <p class="text-white">
+                                    {{ $comment->message }}
+                                </p>
+                                @auth
                                     @if ($comment->email_user === Auth::user()->email)
                                         <a class="textcomment" href="{{ route('edit_comments', [$post_id, $comment->id]) }}"
                                             role="button">Редактировать комментарий</a>

@@ -76,7 +76,7 @@
                         class="badge badge-md badge-primary text-uppercase mr-2">{{ count($comments) }}</span>
                 </h3>
 
-                <img src="{{ asset('images/icon-view.png') }}"><span> {{ $post_view }}</span>
+                <img src="{{ asset('storage/images/icon-view.png') }}"><span> {{ $post_view }}</span>
 
             </div>
         </div>
@@ -98,7 +98,7 @@
             </div>
             @guest
                 @if (Route::has('login'))
-                    @if (empty($comments))
+                    @if (count($comments) == 0)
                         <div class="site-section">
                             <div class="container">
                                 <div class="bg-dark p-5 rounded mt-3">

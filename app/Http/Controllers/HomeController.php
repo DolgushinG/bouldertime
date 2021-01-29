@@ -52,7 +52,7 @@ class HomeController extends Controller
         if ($ImageRequest->hasFile('avatar')) {
             $file = $ImageRequest->file('avatar');
             $imageName = time() . '.' . $ImageRequest->file('avatar')->getClientOriginalExtension();
-            $file->move('images/users' , $imageName);
+            $file->storeAs('images/users/' , $imageName, 'public');
             $user->avatar = 'images/users/'.$imageName;
         }
         $user->save();

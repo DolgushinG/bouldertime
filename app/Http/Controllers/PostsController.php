@@ -78,6 +78,7 @@ class PostsController extends Controller
         $countTimeRead = round(strlen($post->body) / 1500);
 
         $post_view = views($post)->count();
+
         return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead']));
     }
 

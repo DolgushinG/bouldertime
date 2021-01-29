@@ -12,7 +12,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 mb-6 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
                             <div class="grow">
-                            <img src="{{asset('images/programm.jpg')}}" alt="Image" class="img-fluid">
+                            <img src="{{asset('storage/images/programm.jpg')}}" alt="Image" class="img-fluid">
                             </div>
                         </div>
                         <div class="col-lg-6 ml-auto order-lg-1">
@@ -40,7 +40,7 @@
             <div class="row align-items-center speaker">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                     <div class="grow">
-                    <img src="{{asset('images/freepicture2.jpg')}}" alt="Image" class="img-fluid">
+                    <img src="{{asset('storage/images/freepicture2.jpg')}}" alt="Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 ml-auto sectionhome">
@@ -55,7 +55,7 @@
             <div class="sp2 row align-items-center speaker">
                 <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
                     <div class="grow">
-                    <img src="{{asset('images/advice.jpg')}}" alt="Image" class="img-fluid">
+                    <img src="{{asset('storage/images/advice.jpg')}}" alt="Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 ml-auto order-lg-1 sectionhome" >
@@ -72,7 +72,7 @@
             <div class="row align-items-center speaker">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                     <div class="grow">
-                    <img src="{{asset('images/tops.jpg')}}" alt="Image" class="img-fluid">
+                    <img src="{{asset('storage/images/tops.jpg')}}" alt="Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 ml-auto sectionhome">
