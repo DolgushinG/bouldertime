@@ -33,7 +33,7 @@ class HomeController extends Controller
         return view('profile.index', compact('comments'));
     }
 
-    public function save_changes(UserRequest $userRequest)
+    public function saveChanges(UserRequest $userRequest)
     {
         $id = Auth()->user()->id;
         $user = User::find($id);
@@ -45,7 +45,7 @@ class HomeController extends Controller
 
         return redirect()->route('profile')->with('success', 'Изменения сохранены');
     }
-    public function save_avatar(ImageRequest $ImageRequest)
+    public function saveAvatar(ImageRequest $ImageRequest)
     {
         $id = Auth()->user()->id;
         $user = User::find($id);

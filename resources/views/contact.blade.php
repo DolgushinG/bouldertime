@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-6" data-aos="fade-up">
                     @include('message.message')
-                    <form method="POST" action="{{route('contact_send')}}">
+                    <form method="POST" action="{{route('contactSend')}}">
                         @csrf
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">

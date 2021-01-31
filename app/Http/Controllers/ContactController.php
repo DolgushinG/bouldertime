@@ -5,7 +5,7 @@ use App\Contact;
 use App\Http\Requests\ContactRequest;
 class ContactController extends Controller
 {
-    public function index_contact(){
+    public function indexContact(){
         return view('contact');
     }
     public function send(ContactRequest $request){

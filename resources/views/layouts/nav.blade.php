@@ -11,10 +11,10 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-11 col-xl-2">
-                    <h1 class="mb-0"><a href="{{route('home')}}" style="color:white!important;" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span> </a></h1>
+                    <h1 class="mb-0"><a href="{{route('home')}}" style="color:white!important;" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span></a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation navbar-collapse position-relative text-right fixed-top" role="navigation">
+                    <nav class="site-navigation navbar-collapse position-relative text-right" role="navigation">
                         <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                             @foreach(App\Status::all() as $status)
                                 @if($status->status)
@@ -58,7 +58,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('buy_ticket')}}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('buyTicket')}}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                                             Цены
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -29,7 +29,7 @@
                                 </p>
                                 @auth
                                     @if ($comment->email_user === Auth::user()->email)
-                                        <a class="textcomment" href="{{ route('edit_comments', [$post_id, $comment->id]) }}"
+                                        <a class="textcomment" href="{{ route('editComments', [$post_id, $comment->id]) }}"
                                             role="button">Редактировать комментарий</a>
                                 </div>
                                 <div class="container">

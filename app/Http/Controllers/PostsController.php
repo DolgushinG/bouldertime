@@ -10,6 +10,7 @@ use App\Models\Replies;
 use App;
 use App\Http\Requests\CommentsRequest;
 use App\Http\Requests\postRequest;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -20,22 +21,35 @@ class PostsController extends Controller
         return view('posts.index', compact('posts', 'newPost'));
     }
 
-    function save_likedislike(postRequest $request)
+    public function saveLikeDislike(postRequest $request)
     {
+
+        $likePosts = App\Models\LikeDislike::where('post_id','=', $request->post)->get();
         $data = new LikeDislike;
-        $data->post_id = $request->post;
-        if ($request->type == 'like') {
-            $data->like = 1;
-        } else {
-            $data->dislike = 1;
+        $hasIpInlike = App\Models\LikeDislike::where('user_ip', '=', $request->ip())->first();
+        foreach($likePosts as $likePost){
+            if($hasIpInlike === null){
+                if ($request->type === 'like'){
+                    $data->like = 1;
+                } else {
+                    $data->dislike = 1;
+                }
+                $data->post_id = $request->post;
+                $data->user_ip = $request->ip();
+                $data->save();
+                return response()->json([
+                      'bool' => true
+                ]);
+            } else {
+                $like = App\Models\LikeDislike::find($hasIpInlike->id);
+                if($like !== null){
+                    $like->find($hasIpInlike->id)->delete();
+                } 
+            } 
         }
-        $data->save();
-        return response()->json([
-            'bool' => true
-        ]);
     }
 
-    public function send_edit_comment($id_post, $id_comment, CommentsRequest $request)
+    public function sendEditComment($id_post, $id_comment, CommentsRequest $request)
     {
         $comment = App\Comments::find($id_comment);
         $comment->id_posts = intval($id_post);
@@ -50,14 +64,14 @@ class PostsController extends Controller
         return redirect()->route('show', $id_post)->with('success', 'Изменения сохранены');
     }
 
-    public function edit_comments($id_post, $id_comment)
+    public function editComments($id_post, $id_comment)
     {
         $comment = App\Comments::find($id_comment);
         $post = Models\Post::find($id_post);
-        return view('posts.edit_comments', compact('comment', 'post'));
+        return view('posts.editComments', compact('comment', 'post'));
     }
 
-    public function delete_comment(Request $request)
+    public function deleteComment(Request $request)
     {
         if ($request->ajax()) {
             $comment = new Comments;
@@ -67,17 +81,16 @@ class PostsController extends Controller
         }
     }
 
-    public function show($id, Request $request)
+    public function show(Post $post, Request $request)
     {
-        $post = Models\Post::find($id);
         $users = App\Models\User::all();
-        $comments = App\Comments::where('id_posts', '=', $id)->get();
+        $comments = App\Comments::where('id_posts', '=', $post->id)->get();
         views($post)->record();
         $likes = LikeDislike::all();
 
         $countTimeRead = round(strlen($post->body) / 1500);
 
-        $post_view = views($post)->count();
+        $post_view = views($post)->unique()->count();
 
         return view('posts.show', compact(['comments', 'post', 'post_view', 'users', 'countTimeRead']));
     }
@@ -89,7 +102,7 @@ class PostsController extends Controller
         $users = App\Models\User::all();
         $comments = App\Comments::where('id_posts', '=', $post_id)->get();
 
-        return view('posts.commentslist', compact(['comments', 'users', 'post_id']));
+        return view('posts.commentsList', compact(['comments', 'users', 'post_id']));
     }
 
     public function makeComment(Request $request)
