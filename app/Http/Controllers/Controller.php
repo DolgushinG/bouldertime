@@ -13,30 +13,30 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index_home(){
+    public function indexHome(){
         $newPost = Models\Post::latest('created_at')->first();
         $posts = Models\post::paginate(6);
         return view('home', compact('posts', 'newPost'));
     }
-    public function index_about(){
+    public function indexAbout(){
         return view('about');
     }
-    public function index_test(){
+    public function indexTest(){
         return view('test');
     }
-    public function season_ticket(){
+    public function seasonTicket(){
         $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
         return view('profile.season_ticket',compact('comments'));
     }
-    public function order_story(){
+    public function orderStory(){
         $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
-        return view('profile.order_story',compact('comments'));
+        return view('profile.orderStory',compact('comments'));
     }
-    public function my_comments(){
+    public function myComments(){
         $comments = Comments::where('email_user', '=', Auth()->user()->email)->paginate(6);
-        return view('profile.my_comments', compact('comments'));
+        return view('profile.myComments', compact('comments'));
     }
-    public function index_buy_ticket(){
+    public function indexBuyTicket(){
         return view('buy_ticket');
     }
 

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6" data-aos="fade-up">
                     @include('message.message')
-                    <form method="POST" action="{{route('send_edit_comment', [$post->id,$comment->id])}}">
+                    <form method="POST" action="{{route('sendEditComment', [$post->id,$comment->id])}}">
                         @csrf
                         <div class="row form-group">
                             <div class="col-md-12">

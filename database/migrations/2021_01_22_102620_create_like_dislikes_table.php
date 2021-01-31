@@ -16,6 +16,7 @@ class CreateLikeDislikesTable extends Migration
         Schema::create('like_dislikes', function (Blueprint $table) {
             $table->id();
             $table->integer('post_id');
+            $table->string('user_ip');
             $table->smallInteger('like')->default(0);
             $table->smallInteger('dislike')->default(0);
             $table->timestamps();

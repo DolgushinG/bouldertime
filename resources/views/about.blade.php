@@ -25,7 +25,7 @@
             </div>
             <div class="row mb-5">
                 <div class="col-12" data-aos="fade-up" data-aos-delay="300">
-                    <img src="{{ asset('images/hero_1.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('storage/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
                 </div>
             </div>
             <div class="row">
