@@ -34,7 +34,7 @@ Route::get('/',[Controller::class, 'indexHome'])->name('home');
 Route::get('/about',[Controller::class, 'indexAbout'])->name('about');
 Route::get('/test',[Controller::class, 'indexTest'])->name('test');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'backside'], function () {
     Voyager::routes();
 });
 
