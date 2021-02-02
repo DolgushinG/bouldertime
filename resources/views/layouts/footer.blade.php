@@ -15,10 +15,8 @@
             <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading text-uppercase mb-4">Юридическая информация</h2>
                 <ul class="list-unstyled">
-                    <li><a href="#">Политика в отношении обработки персональных данных</a></li>
-                    <li><a href="#">Согласие на обработку персональных данных</a></li>
-                    <li><a href="#">Политика Cookie</a></li>
-                    <li><a href="#">Пользовательское соглашение</a></li>
+                    <li><a href="{{route('polities')}}">Политика в отношении обработки персональных данных</a></li>
+                    <li><a href="{{route('privacy')}}">Согласие на обработку персональных данных</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
