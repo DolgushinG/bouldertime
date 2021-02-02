@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
     <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/css/suggestions.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@20.3.0/dist/js/jquery.suggestions.min.js"></script>
     <div class="site-section" style="padding: 10em 0;">
@@ -73,8 +73,11 @@
                                                        placeholder="Введите подтверждение пароля">
                                             </div>
                                             <div class="text-center mt-3">
-                                                <button type="submit" class="btn btn-lg btn-primary">зарегистрироваться
-                                                </button>
+                                                <div class="text-center">
+                                                    <p class="small"><label><input class="form-check-input" name="checkbox" id="checkbox" type="checkbox">Я даю согласие на обработку моих <br> персональных данных 
+                                                        в порядке и на условиях, указанных в согласии</label></p>
+                                                    <p><button type="submit" id="btn" class="btn btn-sm btn-outline-primary" disabled="disabled">зарегистрироваться</button></p>
+                                                </div>
                                                 <p class="font-size-sm pt-3 mb-0">У вас уже есть аккаунт? <a
                                                         class="ml-grid-gutter d-none d-lg-inline-block" href="{{ route('login') }}"
                                                     >Вход</a></p>
@@ -92,4 +95,17 @@
     </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+    <script>
+    
+        $('#checkbox').click(function(){
+            console.log('das');
+            if ($(this).is(':checked')){
+                $('#btn').removeAttr('disabled');
+            } else {
+                $('#btn').attr('disabled', 'disabled'); 
+            }
+        });
+        </script>
 @endsection
+
+

@@ -24,6 +24,13 @@ $(document).on('click', '#saveLikeDislike', function () {
                 _prevCount++;
                 $("." + _type + "-count").text(_prevCount);
             }
+            if (res.bool == false) {
+                vm.removeClass('disabled').addClass('active');
+                vm.removeAttr('id');
+                var _prevCount = $("." + _type + "-count").text();
+                _prevCount--;
+                $("." + _type + "-count").text(_prevCount);
+            }  
         }
     });
 
