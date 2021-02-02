@@ -24,6 +24,12 @@ class Controller extends BaseController
     public function indexTest(){
         return view('test');
     }
+    public function indexPrivacy(){
+        return view('privacy.privatedata');
+    }
+    public function indexPolities(){
+        return view('privacy.policiesconf');
+    }
     public function seasonTicket(){
         $comments = Comments::where('email_user', '=', Auth()->user()->email)->get();
         return view('profile.season_ticket',compact('comments'));
