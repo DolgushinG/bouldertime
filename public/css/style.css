@@ -1592,3 +1592,63 @@ input[type=file] {
 body div{
     transition:all 0.3s ease;
 }
+.cookie-policy__card {
+    width: 360px;
+    position: fixed;
+    right: 19px;
+    bottom: 20px;
+    padding: 12px 30px;
+    background-color: #ff573278;
+    border-radius: 30px;
+    z-index: 99
+}
+
+.cookie-policy__card_hidden {
+    display: none
+}
+
+@media screen and (max-width: 767px) {
+    .cookie-policy__card {
+        bottom:60px;
+        max-width: calc(100% - 100px)
+    }
+}
+
+.cookie-policy__text {
+    font-size: 12px;
+    line-height: 18px;
+    color: hsla(0,0%,100%,.9)
+}
+
+@media screen and (max-width: 360px) {
+    .cookie-policy__text {
+        max-width:190px;
+        font-size: 11px
+    }
+}
+.theme {
+    --bright-mod: 1.45;
+    --shade-mod: 0.6;
+}
+* {
+    scroll-behavior: smooth;
+}
+.text_size_m {
+    font-size: var(--size-typo-m);
+    line-height: var(--line-height-typo-m);
+}
+
+.text_view_link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.cookie-policy__ok-btn {
+    position: absolute;
+    right: 40px;
+    bottom: calc(50% - 15px);
+}
+ .text_size_m {
+    font-size: var(--size-typo-m);
+    line-height: var(--line-height-typo-m);
+}

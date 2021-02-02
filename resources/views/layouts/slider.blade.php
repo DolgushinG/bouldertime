@@ -84,7 +84,7 @@
     C A R O U S E L
     ####################################################
     -->
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+    <div id="carousel" class="carousel slide carousel-fade" style="height: 100%" data-ride="carousel" data-interval="6000">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
@@ -92,7 +92,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <a href="https://bootstrapcreative.com/">
+                <a href="{{route('register')}}">
                     <!-- 
                     If you need more browser support use https://scottjehl.github.io/picturefill/
                     If a picture looks blurry on a retina device you can add a high resolution like this
@@ -101,17 +101,18 @@
                     What image sizes should you use? This can help - https://codepen.io/JacobLett/pen/NjramL
                      -->
                      <picture>
-                      <source srcset="{{asset('storage/images/image3.jpg')}}" media="(min-width: 1400px)">
-                      <source srcset="https://dummyimage.com/1400x500/#007aeb/4196e5" media="(min-width: 769px)">
-                       <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)">
-                      <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
+
+                      <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
+                      <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
+                       <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
+                      <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
+
                     </picture>
 
                     <div class="carousel-caption">
                         <div>
-                            <h2>Digital Craftsmanship</h2>
-                            <p>We meticously build each site to get results</p>
-                            <span class="btn btn-sm btn-outline-secondary">Learn More</span>
+                           <a href="{{route('register')}}"><span class="btn btn-sm btn-primary">Регистрация</span></a>
+                           <p class="text-white">Для возможности комментировать посты</p>
                         </div>
                     </div>
                 </a>
@@ -120,10 +121,11 @@
             <div class="carousel-item">
                 <a href="https://bootstrapcreative.com/">
                      <picture>
-                      <source srcset="{{asset('storage/images/image1.jpg')}}" media="(min-width: 1400px)">
-                      <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)">
-                       <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)">
-                      <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
+                         
+                      <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
+                      <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
+                       <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
+                      <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
                     </picture>
 
                     <div class="carousel-caption justify-content-center align-items-center">
@@ -139,10 +141,10 @@
             <div class="carousel-item">
                 <a href="https://bootstrapcreative.com/">
                      <picture>
-                      <source srcset="{{asset('storage/images/image2.jpg')}}" media="(min-width: 1400px)">
-                      <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)">
-                       <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)">
-                      <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
+                      <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
+                      <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
+                       <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
+                      <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
                     </picture>
 
                     <div class="carousel-caption justify-content-center align-items-center">
@@ -166,12 +168,3 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!-- /.carousel -->
-
-
-<div class="container-fluid text-center">
-    <p>Full width carousel with a maximum height and art direction. Resize window to see image change based on the size of the window.</p>
-</div>
-<!-- /.container -->
-
-Resources

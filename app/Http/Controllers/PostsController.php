@@ -24,30 +24,57 @@ class PostsController extends Controller
     public function saveLikeDislike(postRequest $request)
     {
 
-        $likePosts = App\Models\LikeDislike::where('post_id','=', $request->post)->get();
+        $likePost = App\Models\LikeDislike::where('post_id','=', $request->post)->get();
+        $likeCheckInPost = App\Models\LikeDislike::where('post_id','=', $request->post)->first();
+
         $data = new LikeDislike;
-        $hasIpInlike = App\Models\LikeDislike::where('user_ip', '=', $request->ip())->first();
-        foreach($likePosts as $likePost){
-            if($hasIpInlike === null){
-                if ($request->type === 'like'){
-                    $data->like = 1;
-                } else {
-                    $data->dislike = 1;
+        if($likeCheckInPost !== null){
+            foreach($likePost as $like){
+                if($like->user_ip === $request->ip()){
+                    if($like->like == 1 && $request->type === 'like'){
+                        App\Models\LikeDislike::find($like->id)->delete();
+                        return response()->json([
+                            'bool' => false
+                      ]);
+                    } else if ($like->dislike == 1 && $request->type === 'dislike') {
+                        App\Models\LikeDislike::find($like->id)->delete();
+                        return response()->json([
+                            'bool' => false
+                      ]);
+                    } 
                 }
-                $data->post_id = $request->post;
-                $data->user_ip = $request->ip();
-                $data->save();
-                return response()->json([
-                      'bool' => true
-                ]);
-            } else {
-                $like = App\Models\LikeDislike::find($hasIpInlike->id);
-                if($like !== null){
-                    $like->find($hasIpInlike->id)->delete();
-                } 
+                    
+                if ($like->user_ip !== $request->ip()){
+                    
+                    if ($request->type === 'like'){
+                        $data->like = 1;
+                    } else {
+                        $data->dislike = 1;
+                    }
+                    $data->post_id = $request->post;
+                    $data->user_ip = $request->ip();
+                    $data->save();
+                    return response()->json([
+                          'bool' => true
+                    ]);
+                }
             } 
+        } else {
+            if ($request->type === 'like'){
+                $data->like = 1;
+            } else {
+                $data->dislike = 1;
+            }
+            $data->post_id = $request->post;
+            $data->user_ip = $request->ip();
+            $data->save();
+            return response()->json([
+                  'bool' => true
+            ]);
         }
+
     }
+    
 
     public function sendEditComment($id_post, $id_comment, CommentsRequest $request)
     {
