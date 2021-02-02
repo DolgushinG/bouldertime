@@ -100,18 +100,16 @@
 
                     What image sizes should you use? This can help - https://codepen.io/JacobLett/pen/NjramL
                      -->
-                     <picture>
-
+                     <picture class="darkened">
                       <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
                       <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
                        <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
                       <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
-
                     </picture>
 
                     <div class="carousel-caption">
                         <div>
-                           <a href="{{route('register')}}"><span class="btn btn-sm btn-primary">Регистрация</span></a>
+                           <a href="{{route('register')}}"><span class="btn btn-lg btn-primary">Регистрация</span></a>
                            <p class="text-white">Для возможности комментировать посты</p>
                         </div>
                     </div>
@@ -120,19 +118,18 @@
             <!-- /.carousel-item -->
             <div class="carousel-item">
                 <a href="https://bootstrapcreative.com/">
-                     <picture>
-                         
-                      <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
-                      <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
-                       <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
-                      <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
+                     <picture class="darkened">
+                      <source srcset="{{asset('storage/images/slider/2000x500/slider2.jpg')}}" media="(min-width: 1400px)">
+                      <source srcset="{{asset('storage/images/slider/1400x500/slider2.jpg')}}" media="(min-width: 769px)">
+                       <source srcset="{{asset('storage/images/slider/800x500/slider2.jpg')}}" media="(min-width: 577px)">
+                      <img srcset="{{asset('storage/images/slider/600x500/slider2.jpg')}}" alt="responsive image" class="d-block img-fluid">
                     </picture>
 
                     <div class="carousel-caption justify-content-center align-items-center">
                         <div>
-                            <h2>Every project begins with a sketch</h2>
-                            <p>We work as an extension of your business to explore solutions</p>
-                            <span class="btn btn-sm btn-outline-secondary">Our Process</span>
+                            <h2></h2>
+                            <a href="{{route('posts')}}"><span class="btn btn-lg btn-primary">Посты</span></a>
+                            <p class="text-white">Чтение статей на разную тему</p>
                         </div>
                     </div>
                 </a>
@@ -140,18 +137,17 @@
             <!-- /.carousel-item -->
             <div class="carousel-item">
                 <a href="https://bootstrapcreative.com/">
-                     <picture>
-                      <source srcset="{{asset('storage/images/slider/2000x500/slider1.jpg')}}" media="(min-width: 1400px)">
-                      <source srcset="{{asset('storage/images/slider/1400x500/slider1.jpg')}}" media="(min-width: 769px)">
-                       <source srcset="{{asset('storage/images/slider/800x500/slider1.jpg')}}" media="(min-width: 577px)">
-                      <img srcset="{{asset('storage/images/slider/600x500/slider1.jpg')}}" alt="responsive image" class="d-block img-fluid">
+                     <picture class="darkened">
+                      <source srcset="{{asset('storage/images/slider/2000x500/slider3.jpg')}}" media="(min-width: 1400px)">
+                      <source srcset="{{asset('storage/images/slider/1400x500/slider3.jpg')}}" media="(min-width: 769px)">
+                      <source srcset="{{asset('storage/images/slider/800x500/slider3.jpg')}}" media="(min-width: 577px)">
+                      <img srcset="{{asset('storage/images/slider/600x500/slider3.jpg')}}" alt="responsive image" class="d-block img-fluid">
                     </picture>
 
                     <div class="carousel-caption justify-content-center align-items-center">
                         <div>
-                            <h2>Performance Optimization</h2>
-                            <p>We monitor and optimize your site's long-term performance</p>
-                            <span class="btn btn-sm btn-secondary">Learn How</span>
+                            <a href="{{route('contact')}}"><span class="btn btn-lg btn-primary">Свяжитесь с нами</span></a>
+                            <p class="text-white">Для идей постов</p>
                         </div>
                     </div>
                 </a>

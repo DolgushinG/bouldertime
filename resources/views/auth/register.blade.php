@@ -75,7 +75,7 @@
                                             <div class="text-center mt-3">
                                                 <div class="text-center">
                                                     <p class="small"><label><input class="form-check-input" name="checkbox" id="checkbox" type="checkbox">Я даю согласие на обработку моих <br> персональных данных 
-                                                        в порядке и на условиях, указанных в согласии</label></p>
+                                                        в порядке и на условиях, указанных в <a href="{{route('privacy')}}">согласии</a></label></p>
                                                     <p><button type="submit" id="btn" class="btn btn-sm btn-outline-primary" disabled="disabled">зарегистрироваться</button></p>
                                                 </div>
                                                 <p class="font-size-sm pt-3 mb-0">У вас уже есть аккаунт? <a

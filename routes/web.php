@@ -17,6 +17,8 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/posts', [PostsController::class, 'index'])->name('posts');
+Route::get('/privacy', [Controller::class, 'IndexPrivacy'])->name('privacy');
+Route::get('/polities', [Controller::class, 'IndexPolities'])->name('polities');
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 
 Route::post('/posts/{post}/comments', [PostsController::class, 'sendComments'])->name('sendComments')->middleware('verified');

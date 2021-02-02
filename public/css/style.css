@@ -1142,9 +1142,6 @@ a {
     height: auto;
 } */
 
-.carousel {
-  background:#007aeb;
-}
 
 /*
 Forces image to be 100% width and not max width of 100%
@@ -1161,9 +1158,7 @@ anchors are inline so you need ot make them block to go full width
   width:100%;
 }
 
-.darkened {
-    position: relative;
-}
+
 
 .darkened::before {
     content: '';
@@ -1172,7 +1167,7 @@ anchors are inline so you need ot make them block to go full width
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.267);
     z-index: 1;
 }
 
