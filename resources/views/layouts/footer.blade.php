@@ -19,22 +19,27 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <h2 class="footer-heading text-uppercase mb-4">Свяжитесь с нами</h2>
+                <h2 class="footer-heading text-uppercase mb-4">Социальные сети</h2>
                 <p>
                     <a href="https://www.instagram.com/bouldertime.ru" class="p-2"><img src="{{asset('storage/images/Instagram_icon.png')}}"></a>
                     <a href="https://t.me/joinchat/Uca55ohoo8wrIyPW" class="p-2"><img src="{{asset('storage/images/telegram_icon.png')}}"></a>
                     <a href="https://vk.com/bouldertime" class="p-2"><img src="{{asset('storage/images/vk_icon.png')}}"></a>
                     <a href="https://zen.yandex.ru/id/5fe3c6a19fa5af00d17e527e" class="p-2"><img src="{{asset('storage/images/yandex.dzen.png')}}"></a>
+                </p>
+                <hr>
+                <h2 class="footer-heading text-uppercase mb-4">Свяжитесь с нами</h2>
+                <p>
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Адрес</p>
                     <p class="mb-4">Saint-Petersburg</p>
 
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Телефон</p>
-                    <p class="mb-4"><a>+7 (999) 240 23 42</a></p>
-
+                    <p class="phone mb-4">
+                        <a href=”tel:+79992402342”>+7(999)240-23-42</a>
+                    </p>
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Email адрес</p>
                     <p class="mb-0"><a>blog@bouldertime.ru</a></p>
-
                 </p>
+                
             </div>
             
         </div>
