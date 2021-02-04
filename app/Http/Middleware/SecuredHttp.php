@@ -4,7 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+ 
+use Illuminate\Support\Facades\App;
 class SecuredHttp
 {
     /**
@@ -15,8 +16,8 @@ class SecuredHttp
      * @return mixed
      */
     public function handle($request, Closure $next){
-        if (!$request->secure()) {
-            return redirect()->secure($request->path());
+        if (!$request->secure() && App::enviroment() === 'production') {
+            return redirect()->secure($request->getRequestUri());
         }
         return $next($request);
     }
