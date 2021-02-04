@@ -18,7 +18,8 @@
                         <div class="col-lg-6 ml-auto order-lg-1">
                             <h2 class="text-uppercase text-primary d-block mb-3" data-aos="fade-left"
                                 data-aos-delay="300">Блог о скалолазании</h2>
-                                <p>
+                                <p data-aos="fade-left"
+                                data-aos-delay="300">
                                     Мы создали обычный блок размером 380 на 250 пикселей. Это блок должен быть такого же размера как и изображение (в нашем случае 380 на 250). 
                                 </p>
                         </div>
