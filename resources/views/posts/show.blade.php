@@ -14,16 +14,9 @@
                 <div class="col-md-10 ">
                     @include('message.message')
                     <h1 class="d-block mb-2" data-aos="fade-up" data-aos-delay="100">{{ $post->title }}</h1>
-                    <div class="container">
+                    <div class="container" ">
                         <span class="caption text-muted" data-aos="fade-up" data-aos-delay="100">
-                            @if (round($countTimeRead) == 1)
-                                {{ $countTimeRead }} минута чтения
-                            @elseif(round($countTimeRead) < 5 && $countTimeRead> 1 )
-                                    {{ $countTimeRead }} минуты чтения
-                            @elseif(round($countTimeRead) < 1) меньше минуты чтения 
-                            @elseif (round($countTimeRead)> 5)
-                                    {{ $countTimeRead }} минут чтения
-                        @endif
+                            <img src="{{asset('storage/images/clock.png')}}" class="img-fluit"> {{ $countTimeRead }} min
                     </span>
                 </div>
             </div>
@@ -34,7 +27,7 @@
 <div class="site-section">
 
     <div class="container  posts-style">
-        <div class="row mb-5">
+        <div class="row mb-5"style="margin-top: 1rem;">
             <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->image) }}" alt="Image" class="img-fluid">
             </div>
@@ -80,7 +73,7 @@
 
             </div>
         </div>
-
+        
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-body">
                 <div class="mt-2 pt-2 border-top">
@@ -91,6 +84,7 @@
                 </div>
             </div>
         </div>
+        
         <div id="content" style="padding-top: 2rem;">
             <div id="commentField_{{ $post->id }}" class="panel panel-default" style="margin-top:-20px; display:none;">
                 <div id="comment_{{ $post->id }}">
@@ -98,15 +92,6 @@
             </div>
             @guest
                 @if (Route::has('login'))
-                    @if (count($comments) == 0)
-                        <div class="site-section">
-                            <div class="container">
-                                <div class="bg-dark p-5 rounded mt-3">
-                                    <p class="lead">Комментариев пока нет</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
                     <div class="site-section">
                         <div class="container">
                             <div class="bg-dark p-5 rounded mt-3">
