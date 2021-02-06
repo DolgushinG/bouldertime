@@ -1,3 +1,12 @@
+@if (count($comments) === 0)
+                        <div class="site-section">
+                            <div class="container">
+                                <div class="bg-dark p-5 rounded mt-3">
+                                    <p class="lead">Комментариев пока нет</p>
+                                </div>
+                            </div>
+                        </div>
+@else
 @foreach ($comments as $comment)
     <div id="content" class="container bootstrap snippets bootdey">
         <div class="row" style="margin-top:3rem; margin-right: -30px;
@@ -45,3 +54,4 @@
 </div>
 </div>
 @endforeach
+@endif
