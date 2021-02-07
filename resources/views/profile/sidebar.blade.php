@@ -10,7 +10,9 @@
             <form method="POST" action="{{route('saveAvatar')}}" enctype="multipart/form-data">
                 @csrf
                     <div class="media-body px-4 pb-4 text-center">
-                        <a class="btn btn-edit-comments btn-lg btn-primary" style="margin-top:3rem; margin-left: 4rem;display:block;width:120px; height:30px;" onclick="document.getElementById('avatar').click()">Загрузить</a>
+                        <div class="container">
+                        <a class="btn btn-edit-comments btn-lg btn-primary" style="margin-top:3rem; margin-right: auto;margin-left: auto;display:block;width:120px; height:30px;" onclick="document.getElementById('avatar').click()">Загрузить</a>
+                        </div>
                         <input type='file' id="avatar" name="avatar" style="display:none">
                         <i class="fe-refresh-cw mr-2">
                             <div class="p mb-0 font-size-small text-muted">

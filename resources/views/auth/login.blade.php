@@ -67,7 +67,7 @@
                                             </div>
                                             <button class="btn btn-primary btn-block" type="submit">Войти</button>
                                             <p class="font-size-sm pt-3 mb-0">У вас нет аккаунта? <a
-                                                    class="ml-grid-gutter d-none d-lg-inline-block" href="{{ route('register') }}"
+                                                    class="ml-grid-gutter d-lg-inline-block" href="{{ route('register') }}"
                                                     >Регистрация</a></p>
 
                                         </form>

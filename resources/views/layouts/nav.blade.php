@@ -10,7 +10,7 @@
     <header class="site-navbar py-3 fixed-top navbar-dark" style="background-color:#343a40a3!important" role="banner">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-11 col-xl-2">
+                <div class="col-10 col-xl-2">
                     <h1 class="mb-0"><a href="{{route('home')}}" style="color:white!important;" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span></a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
@@ -94,15 +94,15 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="{{route('profile')}}" >
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         @if(Auth::user()->avatar === 'users/default.png')
-                                        <span class="text-white">{{ Auth::user()->email }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="avatar">
+                                        <span>{{ Auth::user()->name }}</span> <img src="https://eu.ui-avatars.com/api/?name={{ Auth::user()->name }}&background=a73737&color=050202&font-size=0.33&size=30" class="avatar img-fluid rounded-circle mr-1" alt="avatar">
                                         @else
-                                            <span class="text-white">{{ Auth::user()->email }}</span>  <img src="{{asset('storage/'.Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
+                                            <span>{{ Auth::user()->name }}</span>  <img src="{{asset('storage/'.Auth::user()->avatar) }}" class="avatar img-fluid rounded-circle mr-1" width="30" alt="avatar">
                                             @endif
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdown" data-aos="fade-up" data-aos-delay="100">
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                             Профиль
                                         </a>
