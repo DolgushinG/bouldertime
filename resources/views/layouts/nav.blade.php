@@ -10,7 +10,7 @@
     <header class="site-navbar py-3 fixed-top navbar-dark" style="background-color:#343a40a3!important" role="banner">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-10 col-xl-2">
+                <div class="col-9 col-xl-2">
                     <h1 class="mb-0"><a href="{{route('home')}}" style="color:white!important;" class="text-white h2 mb-0">BOULDER<span class="text-primary">TIME</span></a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
