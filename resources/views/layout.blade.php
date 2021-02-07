@@ -56,7 +56,7 @@
 @endforeach
 
 @include('layouts.nav')
-@include('preloader')
+
 @include('cookiemsg')
 
 @yield('content')
