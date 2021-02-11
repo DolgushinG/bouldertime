@@ -83,7 +83,7 @@
 
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input type="submit" disabledvalue="Отправить" class="btn sendbtn btn-primary py-2 px-4 text-white">
+                                <input type="submit" disabled value="Отправить" class="btn sendbtn btn-primary py-2 px-4 text-white">
                             </div>
                         </div>
 
