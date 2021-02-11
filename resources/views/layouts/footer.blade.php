@@ -8,7 +8,7 @@
                     <li><a href="{{route('home')}}">Главная</a></li>
                     <li><a href="{{route('about')}}">О нас</a></li>
                     <li><a href="{{route('posts')}}">Посты</a></li>
-                    <li><a href="{{route('contact')}}">Контакты</a></li>
+                    <li><a href="{{route('contact')}}">Контакт</a></li>
                 </ul>
             </div>
             <div class="col-md-3 ml-auto">

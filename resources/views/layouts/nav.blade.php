@@ -81,7 +81,7 @@
                             @endforeach
 
                             <li><a href="{{route('posts')}}">Посты</a></li>
-                            <li><a href="{{route('contact')}}">Контакты</a></li>
+                            <li><a href="{{route('contact')}}">Контакт</a></li>
                             <li><a href="{{route('about')}}">О нас</a></li>
 
                             @guest

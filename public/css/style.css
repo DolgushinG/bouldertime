@@ -75,6 +75,7 @@ h1, h2, h3, h4, h5,
     width: 100%;
     z-index: 2;
     overflow: hidden;
+    position: fixed;
 }
 
 .offcanvas-menu .site-wrap:before {
