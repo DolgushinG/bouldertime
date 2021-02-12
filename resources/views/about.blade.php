@@ -39,7 +39,7 @@ background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(0,0,0,1) 51%, rgba(27
             </div>
             <div class="col-lg-6 ml-auto order-lg-1 sectionhome" >
                 <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200">Мы хотим</h2>
-                <div class="bio pr-lg-5" style="margin-left: 3rem;">
+                <div class="bio pr-lg-5">
                     <p class="mb-4 " data-aos="fade-left" data-aos-delay="400">чтобы вы увидели разницу между плохим и хорошим, 
                         безопасным и опасным, профессиональным и непрофессиональным подходом в скалолазании. 
                         Мы хотим системно изменить требование скалолазов к скалодромам, для получения ими наивысшего 
@@ -68,7 +68,7 @@ background: linear-gradient(180deg, rgba(1,1,1,1) 0%, rgba(0,0,0,1) 51%, rgba(27
         padding-bottom: 2rem; margin-top: 8rem;">
             <div class="col-lg-16 ml-auto sectionhome">
                 <div class="bio pl-lg-5">
-                    <p class="mb-4" data-aos="fade-right" data-aos-delay="400">Если у вас есть идеи о развитии скалолазания,  
+                    <p class="mb-4" data-aos="fade-right" data-aos-delay="400" style="margin-left: 2rem;">Если у вас есть идеи о развитии скалолазания,  
                         интересные истории и опыт, которым вы хотели бы поделится, пишете <a href="{{route('contact')}}">сюда</a>, мы с радостью опубликуем ваш материал в блоге. </p>
                 </div>
             </div>
