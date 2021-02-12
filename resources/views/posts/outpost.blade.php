@@ -19,7 +19,6 @@
                     </div>
                 </div>
             </div>
-            
             @foreach($posts as $post)
             @if($post->status === 'PUBLISHED')
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 blog-entry shadow-soft" data-aos="fade-up" data-aos-delay="200">
@@ -33,13 +32,12 @@
                                 src="https://eu.ui-avatars.com/api/?name=Boulder+Time&background=a73737&color=050202&font-size=0.33&size=30"
                                 class="avatar img-fluid rounded-circle mr-1" alt="BoulderTime">
                         </div>
-                        <div><span>By <a href="#">bouldertimeblog</a></span> &mdash; <span>{{$post->created_at}}{{$post->status}}</span>
+                        <div><span>By <a href="#">bouldertimeblog</a></span> &mdash; <span>{{$post->created_at}}</span>
                         </div>
                     </div>
                 </div>
                 @endif
             @endforeach
-           
         </div>
     </div>
 </div>
