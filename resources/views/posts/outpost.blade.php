@@ -20,7 +20,6 @@
                 </div>
             </div>
             @foreach($posts as $post)
-            @if($post->status === 'PUBLISHED')
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 blog-entry shadow-soft" data-aos="fade-up" data-aos-delay="200">
                    <div class="postcard"> <a href="{{route('show', $post->id)}}" class="d-block mb-4">
                         <img src="{{asset('storage/'.$post->image)}}" alt="Image" class="card-img">
@@ -36,7 +35,6 @@
                         </div>
                     </div>
                 </div>
-                @endif
             @endforeach
         </div>
     </div>

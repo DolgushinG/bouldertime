@@ -18,7 +18,7 @@ class PostsController extends Controller
     {
         $newPost = App\Models\Post::latest('created_at')->where('status', '=', 'PUBLISHED')->first();
         
-        $posts = Models\post::paginate(6);
+        $posts = Models\post::where('status', '=', 'PUBLISHED')->paginate(6);
         return view('posts.index', compact('posts', 'newPost'));
     }
 
