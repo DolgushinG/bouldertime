@@ -14,8 +14,8 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function indexHome(){
-        $newPost = Models\Post::latest('created_at')->first();
-        $posts = Models\post::paginate(6);
+        $newPost = Models\Post::latest('created_at')->where('status', '=', 'PUBLISHED')->first();
+        $posts = Models\post::where('status', '=', 'PUBLISHED')->paginate(6);
         return view('home', compact('posts', 'newPost'));
     }
     public function indexAbout(){
