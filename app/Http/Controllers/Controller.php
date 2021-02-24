@@ -7,7 +7,12 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Comments;
+use App\TestPage;
+
 use App\Models;
+use App\Models\User;
+use Doctrine\Common\Cache\RedisCache;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
@@ -21,8 +26,15 @@ class Controller extends BaseController
     public function indexAbout(){
         return view('about');
     }
-    public function indexTest(){
-        return view('test');
+    public function indexTest($test, Request $request){
+        $id = Auth()->user()->id;
+        $user = User::find($id);
+        if ($user->role_id !== 1) {
+            return redirect('/');
+        }
+        $post = Models\Post::find($test);
+        $countTimeRead = round(strlen($post->body) / 1500);
+        return view('test', compact(['post','countTimeRead']));
     }
     public function indexPrivacy(){
         return view('privacy.privatedata');
