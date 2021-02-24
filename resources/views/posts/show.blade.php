@@ -14,7 +14,7 @@
                 <div class="col-md-10 ">
                     @include('message.message')
                     <h1 class="d-block mb-2" data-aos="fade-up" data-aos-delay="100">{{ $post->title }}</h1>
-                    <div class="container" ">
+                    <div class="container">
                         <span class="caption text-muted" data-aos="fade-up" data-aos-delay="100">
                             <img src="{{asset('storage/images/clock.png')}}" class="img-fluit"> {{ $countTimeRead }} min
                     </span>

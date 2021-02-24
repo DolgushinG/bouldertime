@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +31,7 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contactS
 Route::get('/buy_ticket', [Controller::class, 'indexBuyTicket'])->name('buyTicket');
 Route::get('/',[Controller::class, 'indexHome'])->name('home');
 Route::get('/about',[Controller::class, 'indexAbout'])->name('about');
-Route::get('/test',[Controller::class, 'indexTest'])->name('test');
+Route::get('/test/{test}',[Controller::class, 'indexTest'])->name('test')->middleware('auth');
 
 Route::group(['prefix' => 'backside'], function () {
     Voyager::routes();
