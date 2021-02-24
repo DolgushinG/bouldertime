@@ -31,11 +31,8 @@
                 <p>
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Адрес</p>
                     <p class="mb-4">Saint-Petersburg</p>
-
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Телефон</p>
-                    <p class="phone mb-4">
-                        <a href=”tel:+79992402342”>+7(999)240-23-42</a>
-                    </p>
+                    <a href="tel:+79992402342"> <p class="mb-4">+7(999)-240-23-42</p> </a>
                     <p class="mb-0 font-weight-bold text-secondary text-uppercase mb-3">Email адрес</p>
                     <p class="mb-0"><a>blog@bouldertime.ru</a></p>
                 </p>
