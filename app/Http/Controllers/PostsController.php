@@ -108,13 +108,13 @@ public function deleteComment(Request $request)
 
 public function show(Post $post, Request $request)
 {
-    $postStatus = Models\Post::find($post);
-    if($postStatus[0]['status'] !== 'PUBLISHED') {
+    $postStatus = Models\post::find($post->id);
+    if($postStatus->status !== 'PUBLISHED') {
         return redirect('/');
     }
     $users = App\Models\User::all();
     $comments = App\Comments::where('id_posts', '=', $post->id)->get();
-    views($post)->record();
+    views($post)->unique()->record();
     $likes = LikeDislike::all();
     $countTimeRead = round(strlen($post->body) / 1500);
     $post_view = views($post)->unique()->count();
