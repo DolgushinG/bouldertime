@@ -55,7 +55,7 @@ class Controller extends BaseController
         return view('profile.myComments', compact('comments'));
     }
     public function indexBuyTicket(){
-        return view('buy_ticket');
+        return view('buyTicket');
     }
 
 

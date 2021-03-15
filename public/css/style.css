@@ -1170,7 +1170,7 @@ anchors are inline so you need ot make them block to go full width
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.267);
+    background-color: rgba(0, 0, 0, 0.404);
     z-index: 1;
 }
 
