@@ -21,9 +21,7 @@
             <div class="col-md-4">
                 <h2 class="footer-heading text-uppercase mb-4">Социальные сети</h2>
                 <p>
-                    <a href="https://www.instagram.com/bouldertime.ru" class="p-2"><img src="{{asset('storage/images/Instagram_icon.png')}}"></a>
                     <a href="https://t.me/joinchat/Uca55ohoo8wrIyPW" class="p-2"><img src="{{asset('storage/images/telegram_icon.png')}}"></a>
-                    <a href="https://vk.com/bouldertime" class="p-2"><img src="{{asset('storage/images/vk_icon.png')}}"></a>
                     <a href="https://zen.yandex.ru/id/5fe3c6a19fa5af00d17e527e" class="p-2"><img src="{{asset('storage/images/yandex.dzen.png')}}"></a>
                 </p>
                 <hr>
