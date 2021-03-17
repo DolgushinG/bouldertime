@@ -1,2 +1,51 @@
 User-agent: *
-Disallow:
+
+Disallow: /backside/
+
+Disallow: /test/
+
+Disallow: /phpmyadmin/
+
+Disallow: *utm=
+
+Crawl-Delay: 5
+
+User-agent: GoogleBot
+
+Disallow: /backside/
+
+Disallow: /phpmyadmin/
+
+Disallow: /test/
+
+Allow: /css/*.css
+
+Allow: /js/*.js
+
+Allow: /images/*.png
+
+Allow: /images/*.jpg
+
+User-agent: Yandex
+
+Disallow: /test/
+
+Disallow: /backside/
+
+Disallow: /phpmyadmin/
+
+Allow: /css/*.css
+
+Allow: /js/*.js
+
+Allow: /images/*.png
+
+Allow: /images/*.jpg
+
+Clean-Param: utm_source&utm_medium&utm_campaign
+
+Crawl-Delay: 0.5
+
+Sitemap: https://bouldertime.ru/sitemap.xml
+
+Host: https://bouldertime.ru
