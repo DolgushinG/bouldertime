@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('sitemap:generate')->daily();
         $schedule->call(function () {
             Post::latest('created_at')->where('status', '=', 'DRAFT')->insert(
                 ['status' => 'PUBLISHED']
